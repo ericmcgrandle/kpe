@@ -2,6 +2,7 @@ DROP TABLE IF EXISTS menu_items CASCADE;
 CREATE TABLE menu_items (
   id SERIAL PRIMARY KEY NOT NULL,
   item VARCHAR(100) NOT NULL,
-  price INTEGER NOT NULL,
+  size VARCHAR(6),
+  price INTEGER,
   description TEXT NOT NULL
 );

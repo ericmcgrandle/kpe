@@ -9,17 +9,25 @@ const express = require('express');
 const router  = express.Router();
 
 module.exports = (db) => {
-  router.get("/", (req, res) => {
-    db.query(`SELECT * FROM users;`)
-      .then(data => {
-        const users = data.rows;
-        res.json({ users });
-      })
-      .catch(err => {
-        res
-          .status(500)
-          .json({ error: err.message });
-      });
+  //Homepage
+  router.get("/homepage", (req, res) => {
+    res.render('homepage');
   });
+
+  //Menu
+  router.get("/menu", (req, res) => {
+    res.render('menu');
+  });
+
+  //Confirmation
+  router.get("/confirmation", (req, res) => {
+    res.render('confirmation');
+  });
+
+  //Success
+  router.get("/success", (req, res) => {
+    res.render('success');
+  });
+
   return router;
 };

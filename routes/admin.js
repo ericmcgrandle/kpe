@@ -1,13 +1,12 @@
 const express = require('express');
 const router  = express.Router();
-const bodyParser = require('body-parser');
 
+const bodyParser = require('body-parser');
+router.use(bodyParser.urlencoded({extended: true}));
+
+const helperFunctions = require('../helper_functions/admin_login');
 
 module.exports = (db) => {
-
-
-  router.use(bodyParser.urlencoded({extended: true}));
-
 
   //Login
   router.get("/login", (req, res) => {
@@ -25,13 +24,14 @@ module.exports = (db) => {
   });
 
 
-  //Event listener for admin_login
+  //admin_login
   router.post("/login", (req, res) => {
     const name = req.body.name;
     const password = req.body.password;
 
-    console.log('name', name);
-    console.log('password', password);
+    helperFunctions.getUser(name, db)
+    .then(user => helperFunctions.validateUser(user[0], name, password, res))
+    .catch(err => console.log('error with login', err));
   });
 
   return router;

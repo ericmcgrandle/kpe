@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< HEAD
   <head>
     <title>Menu</title>
 
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/menu.css" type="text/css" />
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
@@ -14,96 +14,131 @@
 
   <body>
     <div>
-      <h2>Pizza</h2>
+      <h1 id="title">Pizza</h1>
     </div>
-    <div>
-      <div>
+    <div class="pizza-container">
+      <div class="pizza-item">
         <h4>Veggie</h4>
         <p>A medley of fresh green peppers, onion, tomatoes, mushrooms, and olives.</p>
-        <div>
-          <p>Small: $16.00</p>
-          <button type="button">S</button>
-          <p>Medium: $18.00</p>
-          <button type="button">M</button>
-          <p>Large: $20.00</p>
-          <button type="button">L</button>
+        <div class="size-container">
+          <div class="size-prices">
+            <span>Small: $16.00</span>
+            <span>Medium: $18.00</span>
+            <span>Large: $20.00</span>
+          </div>
+          <div class="size-buttons">
+            <button type="button">S</button>
+            <button type="button">M</button>
+            <button type="button">L</button>
+          </div>
         </div>
       </div>
-      <div>
+      <div class="pizza-item">
         <h4>Cheese</h4>
         <p>A fresh blend of 4 cheeses</p>
-        <div>
-          <p>Small: $14.00</p>
-          <button type="button">S</button>
-          <p>Medium: $17.00</p>
-          <button type="button">M</button>
-          <p>Large: $19.00</p>
-          <button type="button">L</button>
+        <div class="size-container">
+          <div class="size-prices">
+            <span>Small: $14.00</span>
+            <span>Medium: $17.00</span>
+            <span>Large: $19.00</span>
+          </div>
+          <div class="size-buttons">
+            <button type="button">S</button>
+            <button type="button">M</button>
+            <button type="button">L</button>
+        </div>
         </div>
       </div>
-      <div>
+      <div class="pizza-item">
         <h4>Pepperoni</h4>
         <p>Organic tomato sauce, pepperoni + mozzarella.</p>
-        <div>
-          <p>Small: $15.00</p>
-          <button type="button">S</button>
-          <p>Medium: $17.00</p>
-          <button type="button">M</button>
-          <p>Large: $19.00</p>
-          <button type="button">L</button>
+        <div class="size-container">
+          <div class="size-prices">
+            <span>Small: $15.00</span>
+            <span>Medium: $17.00</span>
+            <span>Large: $19.00</span>
+          </div>
+          <div class="size-buttons">
+            <button type="button">S</button>
+            <button type="button">M</button>
+            <button type="button">L</button>
+          </div>
         </div>
       </div>
-      <div>
+      <div class="pizza-item">
         <h4>New York Deli</h4>
         <p>Organic tomato sauce, pepperoni, Genoa salami, bacon, Canadian ham, spicy Italian sausage, mozzarella + cheddar.</p>
-        <div>
-          <p>Small: $16.00</p>
-          <button type="button">S</button>
-          <p>Medium: $18.00</p>
-          <button type="button">M</button>
-          <p>Large: $20.00</p>
-          <button type="button">L</button>
+        <div class="size-container">
+          <div class="size-prices">
+            <span>Small: $16.00</span>
+            <span>Medium: $18.00</span>
+            <span>Large: $20.00</span>
+          </div>
+          <div class="size-buttons">
+            <button type="button">S</button>
+            <button type="button">M</button>
+            <button type="button">L</button>
+          </div>
         </div>
       </div>
-      <div>
+      <div class="pizza-item">
         <h4>Deluxe</h4>
         <p>A mouth-watering combination of pepperoni, savory Italian sausage, fresh green peppers, fresh mushrooms, fresh onions and cheese.</p>
-        <div>
-          <p>Small: $16.00</p>
-          <button type="button">S</button>
-          <p>Medium: $18.00</p>
-          <button type="button">M</button>
-          <p>Large: $20.00</p>
-          <button type="button">L</button>
+        <div class="size-container">
+          <div class="size-prices">
+            <span>Small: $16.00</span>
+            <span>Medium: $18.00</span>
+            <span>Large: $20.00</span>
+          </div>
+          <div class="size-buttons">
+            <button type="button">S</button>
+            <button type="button">M</button>
+            <button type="button">L</button>
+        </div>
         </div>
       </div>
-      <div>
+      <div class="pizza-item">
         <h4>Vegan</h4>
         <p>Organic tomato sauce, fresh onions, fresh red peppers, fresh mushrooms, beyond-meat sausage</p>
-        <div>
-          <p>Small: $17.00</p>
-          <button type="button">S</button>
-          <p>Medium: $19.00</p>
-          <button type="button">M</button>
-          <p>Large: $21.00</p>
-          <button type="button">L</button>
+        <div class="size-container">
+          <div class="size-prices">
+            <span>Small: $17.00</span>
+            <span>Medium: $19.00</span>
+            <span>Large: $21.00</span>
+          </div>
+          <div class="size-buttons">
+            <button type="button">S</button>
+            <button type="button">M</button>
+            <button type="button">L</button>
+          </div>
         </div>
       </div>
     </div>
     <div>
-      <h3>Cart</h3>
+      <div class="cart-rows">
+        <div class="cart-headers">
+          <strong>Item</strong>
+          <strong>Size</strong>
+          <strong>Price</strong>
+          <strong>Quantity</strong>
+          <strong>Delete</strong>
+        </div>
+        <div class="cart-items">
+          <span>Cheese</span>
+          <span>Medium</span>
+          <span>$17.00</span>
+          <input id="quantity-input" type="number" value="1">
+          <button type="button">Delete</button>
+        </div>
+      </div>
+      <div class="cart-total">
+        <strong>Total:</strong>
+        <span>$17.00</span>
+      </div>
+      <br>
+      <div class="confirm-btn">
+      <button type="Submit">Confirm Order</button>
+      </div>
     </div>
-
   </body>
-=======
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Menu</title>
-</head>
-<body>
-  <h5>Menu Page</h5>
-
-</body>
->>>>>>> master
 </html>

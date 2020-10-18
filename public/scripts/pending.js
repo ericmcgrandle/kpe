@@ -1,5 +1,6 @@
 $( document ).ready(function() {
 
+  //Gets data for pending orders
   $.ajax({
     method: "GET",
     url: "/admin/pending_data"
@@ -8,8 +9,8 @@ $( document ).ready(function() {
   });
 
 
-  const createDivElement = (obj, length) => {
-
+  //Creates the div elements for pending orders
+  const createOrderElement = (obj, length) => {
     //Order id
     let newOrder = `
       <div>
@@ -30,8 +31,8 @@ $( document ).ready(function() {
     //User information and form
     newOrder += `
         <p>
-          -Name-
-          -Phone-
+          ${obj[0].name}
+          ${obj[0].phone}
         </p>
 
         <form>
@@ -43,6 +44,7 @@ $( document ).ready(function() {
     return newOrder;
   };
 
+  //Manipulates data, calls createOrderElement, appends to html
   const renderPending = (orders) => {
     let obj = {};
     result = orders.reduce(function (accum, current) {
@@ -53,7 +55,7 @@ $( document ).ready(function() {
 
     for (let id in obj) {
       const length = obj[id].length;
-      const $order = createDivElement(obj[id], length);
+      const $order = createOrderElement(obj[id], length);
       $('#append_new_orders').append($order);
     }
   };

@@ -7,6 +7,13 @@ $(document).ready(function() {
   inputQuantities.each(function() {
     $(this).on('change', quantityChanged)
   })
+  const addSizeBtns = $('.size-btn');
+  addSizeBtns.each(function() {
+    $(this).on('click', addToCartClick);
+  })
+  const confirmButton = $('.confirm-btn');
+  $(confirmButton).on('click', confirmClicked);
+
 });
 
 const removeCartItem = function(event) {
@@ -24,7 +31,6 @@ const quantityChanged = function(event) {
   updateCartTotal();
 };
 
-
 const updateCartTotal = function() {
   const cartItems = $('.cart-row');
   let total = 0;
@@ -38,6 +44,47 @@ const updateCartTotal = function() {
   })
   $('.total-price').text('$' + total + '.00');
 };
+
+const addToCartClick = function(event) {
+  const button = event.target;
+  const itemContainer = button.closest('.pizza-item');
+  const item = $(itemContainer).find('h4');
+  const itemName = item.text();
+  const priceContainer = button.closest('.size-container');
+  const priceEl = $(priceContainer).find('.menu-price');
+  const price = priceEl.text();
+  const sizeSelected = $(priceContainer).find('.menu-size');
+  const size = sizeSelected.text();
+  addItemToCart(itemName, price, size);
+  updateCartTotal();
+};
+
+const addItemToCart = function(itemName, price, size) {
+  // const cartNames = $('.cart-name');
+  // cartNames.each(function() {
+  //   if(cartNames.text() === itemName) {
+
+  //   }
+  // })
+  const $newItem = $(`<tr class="cart-row">
+  <td class="cart-name">${itemName}</td>
+  <td>${size}</td>
+  <td class="item-price">${price}</td>
+  <td><input class="quantity-input" type="number" value="1"></td>
+  <td><button class="remove-btn" type="button">Delete</button></td>
+  </tr>`)
+  const $container = $('.cart-items');
+  $container.append($newItem);
+  const removeBtn = $('.remove-btn');
+  $(removeBtn).on('click', removeCartItem);
+  const quantityChange = $('.quantity-input');
+  $(quantityChange).on('change', quantityChanged);
+};
+
+const confirmClicked = function() {
+
+}
+
 
 
 

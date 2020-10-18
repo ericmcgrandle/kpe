@@ -1,21 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="stylesheet" href="../styles/login.css">
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Login</title>
 </head>
+
 <body>
-  <h1>Login Page</h1>
-
-  <form action="./login" method="POST">
-    <label for="admin_name">Name</label>
-    <input name="name" id="admin_name">
-
-    <label for="admin_password">Password</label>
-    <input name="password" type="password" id="admin_password">
-
-    <input type="submit" value="Login">
-  </form>
+      <%- include('partials/_header') %>
+    <div class="main">
+      <form class="form1" action="./login" method="POST">
+        <p class="sign">Log in</p>
+        <input id="admin_name" name="name" type="text" placeholder="Username">
+        <input id="admin_password" name="password" type="password"placeholder="Password">
+        <a class="submit" value="Login" type="submit">Log in</a>
+      </form>
+    </div>
 </body>
 </html>
+    
+    <!-- <h1>Login Page</h1>
+  
+    <form action="./login" method="POST">
+      <label for="admin_name">Name</label>
+      <input name="name" id="admin_name">
+  
+      <label for="admin_password">Password</label>
+      <input name="password" type="password" id="admin_password">
+  
+      <input type="submit" value="Login">
+    </form>
+     -->

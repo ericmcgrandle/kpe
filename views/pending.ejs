@@ -3,9 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Pending</title>
+
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/pending.js"></script>
+
 </head>
 <body>
-  <h5>Pending Page</h5>
+  <nav>
+    <p style="background-color: aqua;">some sort of nav bar</p>
+  </nav>
+
+  <main>
+    <div class="pending_confirmation" style="border: 1px solid black; margin: 1em;">
+      <div style="border: 1px solid black;">
+        <h3>Orders Pending Confirmation</h3>
+      </div>
+
+      <div id="append_new_orders">
+        <!-- New orders go here -->
+      </div>
+
+    </div>
+
+    <div class="orders_in_process" style="border: 1px solid black; margin: 1em;">
+      <div>
+        <h3>Orders In Process</h3>
+      </div>
+      <div>
+        <p>
+          Order 1:
+          -Quantity- -Size- -Type-
+        </p>
+        <p>
+          -Name-
+          -Phone-
+        </p>
+        <button>Complete</button>
+    </div>
+  </main>
 </body>
 </html>

@@ -4,7 +4,9 @@ const router  = express.Router();
 const bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({extended: true}));
 
-const helperFunctions = require('../helper_functions/admin_login');
+const helperFunctions = require('../helper_functions/admin');
+const pendingData = require('../helper_functions/pendingData');
+
 
 module.exports = (db) => {
 
@@ -18,11 +20,19 @@ module.exports = (db) => {
     res.render('pending');
   });
 
+  router.get("/pending_data", (req, res) => {
+    //gets data from pending_backend
+    pendingData.getPending(db)
+    .then(orders => {
+      res.json(orders);
+    })
+    .catch(err => console.log('error with pending_data', err));
+  })
+
   //Past_orders
   router.get("/past_orders", (req, res) => {
     res.render('past_orders');
   });
-
 
   //admin_login
   router.post("/login", (req, res) => {

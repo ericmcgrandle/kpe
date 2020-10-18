@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="styles/login.css">
+  <link rel="stylesheet" href="../styles/login.css">
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
 </head>
 
 <body>
-  <header>
       <%- include('partials/_header') %>
-  </header>
     <div class="main">
-      <form class="form1">
-        <p class="sign">Sign in</p>
+      <form class="form1" action="./login" method="POST">
+        <p class="sign">Log in</p>
         <input id="admin_name" name="name" type="text" placeholder="Username">
         <input id="admin_password" name="password" type="password"placeholder="Password">
-        <a class="submit" value="Login" type="submit">Sign in</a>
+        <a class="submit" value="Login" type="submit">Log in</a>
       </form>
     </div>
 </body>

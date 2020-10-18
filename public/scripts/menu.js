@@ -1,15 +1,29 @@
 $(document).ready(function() {
   let removeBtn = $('.remove-btn');
   removeBtn.each(function() {
-    $(this).on('click', function(event) {
-      const buttonClicked = event.target;
-      const tableRow = buttonClicked.closest('tr');
-      tableRow.remove();
-      updateCartTotal()
-
-    })
+    $(this).on('click', removeCartItem)
+  })
+  const inputQuantities = $('.quantity-input');
+  inputQuantities.each(function() {
+    $(this).on('change', quantityChanged)
   })
 });
+
+const removeCartItem = function(event) {
+  const buttonClicked = event.target;
+  const tableRow = buttonClicked.closest('tr');
+  tableRow.remove();
+  updateCartTotal()
+};
+
+const quantityChanged = function(event) {
+  const input = event.target;
+  if (isNaN(input.value) || input.value <= 0) {
+    input.value = 1
+  }
+  updateCartTotal();
+};
+
 
 const updateCartTotal = function() {
   const cartItems = $('.cart-row');
@@ -22,7 +36,7 @@ const updateCartTotal = function() {
     const quantity = quantityItem.val();
     total = total + (price * quantity);
   })
-  $('.total-price').html('$' + total + '.00');
+  $('.total-price').text('$' + total + '.00');
 };
 
 

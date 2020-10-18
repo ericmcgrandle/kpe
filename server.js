@@ -14,10 +14,10 @@ const morgan     = require('morgan');
 const { Pool } = require('pg');
 const dbParams = require('./lib/db.js');
 const db = new Pool({
-  user: 'labber',
-  database: 'midterm',
-  host: 'localhost',
-  password: 'abc123',
+  user: process.env.DB_USER,
+  database: process.env.DB_NAME,
+  host: process.env.DB_HOST,
+  password: process.env.DB_PASS,
   dbParams
 });
 db.connect();

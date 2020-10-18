@@ -1,7 +1,7 @@
 -- item, size, price, description
 INSERT INTO menu_items (item, size, price, description) VALUES ('Veggie', 'small', 16, 'A medley of fresh green peppers, onion, tomatoes, mushrooms, and olives.');
 INSERT INTO menu_items (item, size, price, description) VALUES ('Veggie', 'medium', 18, 'A medley of fresh green peppers, onion, tomatoes, mushrooms, and olives.');
-INSERT INTO menu_items (item, size, price, description) VALUES ('Veggie', large, 20, 'A medley of fresh green peppers, onion, tomatoes, mushrooms, and olives.');
+INSERT INTO menu_items (item, size, price, description) VALUES ('Veggie', 'large', 20, 'A medley of fresh green peppers, onion, tomatoes, mushrooms, and olives.');
 
 INSERT INTO menu_items (item, size, price, description) VALUES ('Cheese', 'small', 14, 'A fresh blend of 4 cheeses');
 INSERT INTO menu_items (item, size, price, description) VALUES ('Cheese', 'medium', 17, 'A fresh blend of 4 cheeses');

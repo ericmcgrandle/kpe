@@ -1,3 +1,8 @@
+/*
+=====
+login
+=====
+*/
 const getUser = (user, db) => {
   return db.query(`SELECT * FROM admin WHERE name = $1`, [user])
   .then(res => res.rows)
@@ -18,7 +23,6 @@ const validateUser = (user, name, password, res) => {
   //TODO ADD ERROR MESSAGE
   res.redirect('./login');
 };
-
 
 module.exports = {
   getUser,

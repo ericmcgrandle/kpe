@@ -34,7 +34,6 @@ module.exports = (db) => {
     res.render('past_orders');
   });
 
-
   //admin_login
   router.post("/login", (req, res) => {
     const name = req.body.name;

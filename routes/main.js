@@ -14,6 +14,11 @@ module.exports = (db) => {
     res.render('homepage');
   });
 
+  // Login
+  router.get("/login", (req, res) => {
+    res.render('login');
+  });
+  
   //Menu
   router.get("/menu", (req, res) => {
     res.render('menu');

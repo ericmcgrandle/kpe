@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/styles/menu.css" type="text/css" />
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/scripts/menu.js"></script>
   </head>
 
   <body>
@@ -114,8 +114,46 @@
         </div>
       </div>
     </div>
-    <div>
-      <div class="cart-rows">
+    <h2 class="cart-title">Cart</h2>
+    <table class="cart-table">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Size</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Cheese</td>
+          <td>Medium</td>
+          <td>$17.00</td>
+          <td><input class="quantity-input" type="number" value="1"></td>
+          <td><button class="remove-btn" type="button">Delete</button></td>
+        </tr>
+        <tr>
+          <td>Pepperoni</td>
+          <td>Medium</td>
+          <td>$17.00</td>
+          <td><input class="quantity-input" type="number" value="1"></td>
+          <td><button class="remove-btn" type="button">Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="subtotal-confirm">
+      <div class="cart-total">
+        <strong>Total:</strong>
+        <span>$34.00</span>
+      </div>
+      <br>
+      <div class="confirm-btn">
+      <button type="Submit">Confirm Order</button>
+      </div>
+    </div>
+    <!-- <div> -->
+      <!-- <div class="cart-container">
         <div class="cart-headers">
           <strong>Item</strong>
           <strong>Size</strong>
@@ -128,7 +166,14 @@
           <span>Medium</span>
           <span>$17.00</span>
           <input id="quantity-input" type="number" value="1">
-          <button type="button">Delete</button>
+          <button  class="remove-btn" type="button">Delete</button>
+        </div>
+        <div class="cart-items">
+          <span>Pepperoni</span>
+          <span>Medium</span>
+          <span>$17.00</span>
+          <input id="quantity-input" type="number" value="1">
+          <button  class="remove-btn" type="button">Delete</button>
         </div>
       </div>
       <div class="cart-total">
@@ -139,6 +184,9 @@
       <div class="confirm-btn">
       <button type="Submit">Confirm Order</button>
       </div>
-    </div>
+    </div> -->
   </body>
 </html>
+
+<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script> -->

@@ -38,7 +38,6 @@ module.exports = (db) => {
   router.post("/login", (req, res) => {
     const name = req.body.name;
     const password = req.body.password;
-
     helperFunctions.getUser(name, db)
     .then(user => helperFunctions.validateUser(user[0], name, password, res))
     .catch(err => console.log('error with login', err));

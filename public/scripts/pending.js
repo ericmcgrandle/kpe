@@ -55,6 +55,10 @@ $( document ).ready(function() {
 
   //Manipulates data, calls createOrderElement, appends to html
   const renderPending = (orders) => {
+
+    console.log('orders', orders);
+
+    //REDUCE FUNCTION
     let obj = {};
     result = orders.reduce(function (accum, current) {
       accum[current.id] = accum[current.id] || [];
@@ -62,8 +66,17 @@ $( document ).ready(function() {
       return accum;
     }, obj);
 
+    console.log('after reduce', obj);
+
+    //LOOP THROUGH REDUCED OBJ
     for (let id in obj) {
+
+      //Inside of for loop
+      console.log('inside for loop', obj[id]);
+
       const length = obj[id].length;
+
+      //IF ITEM IS CONFIRMED
       if (obj[id][0].confirmed) {
         const $order = createOrderElement(obj[id], length);
         $('#orders_in_process').append($order);
@@ -72,6 +85,9 @@ $( document ).ready(function() {
         $('#append_new_orders').append($order);
       }
     }
+
+
+    //BUTTON FUNCTIONALITY
 
     let adminConfirmButton = $('.adminConfirmButton');
     $(adminConfirmButton).on('click', function(event) {

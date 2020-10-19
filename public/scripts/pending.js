@@ -14,9 +14,7 @@ $( document ).ready(function() {
     //Order id
     let newOrder = `
       <div class="pending-order">
-        <p>
-          Order ${obj[0].id}:
-        </p>
+        <p class="orderId">Order ${obj[0].id}</p>
     `;
 
     //Order details
@@ -78,22 +76,41 @@ $( document ).ready(function() {
     let adminConfirmButton = $('.adminConfirmButton');
     $(adminConfirmButton).on('click', function(event) {
       event.preventDefault();
+
       //Get div element
       const button = event.target;
+      const form = button.closest('form');
+      //Time value
+      const inputVal = $(form).find('input').val();
+      //Div element
       const pendingDiv = button.closest('.pending-order');
       const str = pendingDiv.innerHTML;
 
+      let order = $(pendingDiv).find('.orderId').text();
+      const orderId = order.substring(6);
+
+
       //Manipulate div element to have confirm button
       const substring = str.substring(str.lastIndexOf("<form>"), str.lastIndexOf("</form>") + 7);
+
       const newSubstring =
-        `<form>
-          <button type="submit" id="adminComplete">Complete</button>
-        </form>`
+      `<form>
+      <button type="submit" id="adminComplete">Complete</button>
+      </form>`
+
       const confirmedOrder = str.replace(substring, newSubstring);
 
       //remove from pending orders, add to orders in process
       $(pendingDiv).remove();
       $('#orders_in_process').append($(confirmedOrder));
+
+      $.ajax({
+        method: "POST",
+        url: "/admin/updateTimeDatabase",
+        data: { inputVal, orderId }
+      }).done((orders) => {
+        console.log('update complete');
+      });
     });
   };
 });

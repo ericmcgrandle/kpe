@@ -220,10 +220,18 @@
         <strong>Total:</strong>
         <span class="total-price">$0.00</span>
       </div>
-      <br>
-      <div class="confirm-btn">
-      <button class ="confirm-btn" type="Submit">Confirm Order</button>
+      <div>
+        <form class="contact-form" action="/success" method="POST">
+          <h2>Contact Info</h2>
+          <label for="name">Name</label>
+          <input type="text" name="name" placeholder="Name">
+          <label for="email">Email</label>
+          <input type="text" name="email" placeholder="Email">
+          <br>
+          <button class ="confirm-btn" type="Submit">Purchase</button>
+        </form>
       </div>
+
     </div>
   </body>
 </html>

@@ -13,7 +13,7 @@ $( document ).ready(function() {
   const createOrderElement = (obj, length) => {
     //Order id
     let newOrder = `
-      <div>
+      <div class="pending-order">
         <p>
           Order ${obj[0].id}:
         </p>
@@ -34,15 +34,26 @@ $( document ).ready(function() {
           ${obj[0].name}
           ${obj[0].phone}
         </p>
+    `;
 
+    if (obj[0].confirmed) {
+      newOrder += `
         <form>
-          <input type="number" value="30" required>
-          <input name="time_to_complete" type="submit" value="Confirm">
+          <button type="submit" id="adminComplete">Complete</button>
         </form>
       </div>`;
+    } else {
+      newOrder += `
+          <form>
+            <input type="number" value="30" required>
+            <input class="adminConfirmButton" name="time_to_complete" type="submit" value="Confirm">
+          </form>
+        </div>`;
+    }
 
     return newOrder;
   };
+
 
   //Manipulates data, calls createOrderElement, appends to html
   const renderPending = (orders) => {
@@ -55,9 +66,35 @@ $( document ).ready(function() {
 
     for (let id in obj) {
       const length = obj[id].length;
-      const $order = createOrderElement(obj[id], length);
-      $('#append_new_orders').append($order);
+      if (obj[id][0].confirmed) {
+        const $order = createOrderElement(obj[id], length);
+        $('#orders_in_process').append($order);
+      } else {
+        const $order = createOrderElement(obj[id], length);
+        $('#append_new_orders').append($order);
+      }
     }
+
+    let adminConfirmButton = $('.adminConfirmButton');
+    $(adminConfirmButton).on('click', function(event) {
+      event.preventDefault();
+      //Get div element
+      const button = event.target;
+      const pendingDiv = button.closest('.pending-order');
+      const str = pendingDiv.innerHTML;
+
+      //Manipulate div element to have confirm button
+      const substring = str.substring(str.lastIndexOf("<form>"), str.lastIndexOf("</form>") + 7);
+      const newSubstring =
+        `<form>
+          <button type="submit" id="adminComplete">Complete</button>
+        </form>`
+      const confirmedOrder = str.replace(substring, newSubstring);
+
+      //remove from pending orders, add to orders in process
+      $(pendingDiv).remove();
+      $('#orders_in_process').append($(confirmedOrder));
+    });
   };
 });
 

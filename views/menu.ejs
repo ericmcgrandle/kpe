@@ -205,21 +205,21 @@
       <tbody class="cart-items">
         <!-- <tr class="cart-row">
           <td class="cart-name">Cheese</td>
-          <td>Medium</td>
+          <td class="cart-size">Medium</td>
           <td class="item-price">$17.00</td>
           <td><input class="quantity-input" type="number" value="1"></td>
           <td><button class="remove-btn" type="button">Delete</button></td>
         </tr>
         <tr class="cart-row">
           <td class="cart-name">Pepperoni</td>
-          <td>Medium</td>
+          <td class="cart-size">Medium</td>
           <td class="item-price">$17.00</td>
           <td><input class="quantity-input" type="number" value="1"></td>
           <td><button class="remove-btn" type="button">Delete</button></td>
         </tr>
         <tr class="cart-row">
           <td class="cart-name">New York Deli</td>
-          <td>Medium</td>
+          <td class="cart-size">Medium</td>
           <td class="item-price">$18.00</td>
           <td><input class="quantity-input" type="number" value="1"></td>
           <td><button class="remove-btn" type="button">Delete</button></td>
@@ -229,12 +229,20 @@
     <div class="subtotal-confirm">
       <div class="cart-total">
         <strong>Total:</strong>
-        <span class="total-price">$52.00</span>
+        <span class="total-price">$0.00</span>
       </div>
-      <br>
-      <div class="confirm-btn">
-      <button class ="confirm-btn" type="Submit">Confirm Order</button>
+      <div>
+        <form class="contact-form" action="/success" method="POST">
+          <h2>Contact Info</h2>
+          <label for="name">Name</label>
+          <input type="text" name="name" placeholder="Name">
+          <label for="email">Email</label>
+          <input type="text" name="email" placeholder="Email">
+          <br>
+          <button class ="confirm-btn" type="Submit">Purchase</button>
+        </form>
       </div>
+
     </div>
   </body>
 </html>

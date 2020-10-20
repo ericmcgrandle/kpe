@@ -3,19 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="../styles/login.css">
+
   <title>Login</title>
 </head>
+
 <body>
-  <h1>Login Page</h1>
+  <header>
+    <%- include('partials/_header') %>
+  </header>
 
-  <form action="./login" method="POST">
-    <label for="admin_name">Name</label>
-    <input name="name" id="admin_name">
+  <main>
 
-    <label for="admin_password">Password</label>
-    <input name="password" type="password" id="admin_password">
+    <div class="container">
+      <form class="form1" action="./login" method="POST">
+        <input id="admin_name" name="name" type="text" placeholder="Restaurant">
+        <input id="admin_password" name="password" type="password"placeholder="Password">
+        <input class="submit" value="Login" type="submit"></input>
+      </form>
+    </div>
 
-    <input type="submit" value="Login">
-  </form>
+  </main>
+
 </body>
 </html>

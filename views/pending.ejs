@@ -3,9 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/pending.js"></script>
+
+  <link rel="stylesheet" href="/styles/pending.css" type="text/css"/>
+
   <title>Pending</title>
+
 </head>
 <body>
-  <h5>Pending Page</h5>
+  <nav>
+    <%- include('partials/_header') %>
+  </nav>
+
+  <main>
+
+    <div class="pending_confirmation container">
+      <div>
+        <h3>Orders Pending Confirmation</h3>
+      </div>
+
+      <div id="append_new_orders">
+        <!-- New orders go here -->
+      </div>
+    </div>
+
+    <div class="orders_in_process container">
+      <div>
+        <h3>Orders Pending Confirmation</h3>
+      </div>
+
+      <div id="orders_in_process">
+        <!-- New orders go here -->
+      </div>
+    </div>
+
+  </main>
 </body>
 </html>

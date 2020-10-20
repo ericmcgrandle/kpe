@@ -69,9 +69,12 @@ const addItemToCart = function(itemName, price, size) {
   } else if (!cartNames.text().includes(itemName)) {
     addNewItem(itemName, price, size);
   } else {
+    //use count to see if size is found before foreach loops through all items
+    let count = 0;
+    //Loop through each item in the cart
     cartNames.each(function() {
-      const cartContainer = $(this).closest('.cart-row');
-      const sizeContainer = $(cartContainer).find('.cart-size');
+      const container = $(this).closest('.cart-row');
+      const sizeContainer = $(container).find('.cart-size');
       const sizeCart = sizeContainer.text();
       const cartName = $(this).text();
       if (cartName === itemName ) {
@@ -105,45 +108,6 @@ const addItemToCart = function(itemName, price, size) {
 
 
 
-// const checkSize = function(cartName, sizeCart) {
-//   const sizeArray = ['Small', 'Medium', 'Large'];
-//   for(let i = 0; i< 3; i++) {
-//     if ( sizeArray[i] === size && cartName === itemName) {
-//       console.log('im in quantity increase')
-//       const quantity = $(cartContainer).find('.quantity-input');
-//       let currentQuantity = parseInt(quantity.val());
-//       currentQuantity += 1;
-//       $(quantity).val(currentQuantity);
-//   }
-//   }
-
-// }
-
-  //   if () {
-  //     console.log('this is itemName', itemName);
-  //     console.log('this is name', name);
-  //     console.log('this is size', size);
-  //     console.log('this is sizeCart', sizeCart);
-  //     const quantity = $(cartContainer).find('.quantity-input');
-  //     let currentQuantity = parseInt(quantity.val());
-  //     currentQuantity += 1;
-  //     $(quantity).val(currentQuantity);
-  //     return false;
-  //   }
-  //   })
-  // } else {
-  //   console.log('im down here');
-  //   addNewItem(itemName, price, size);
-  //   return false;
-  // }
-//   }
-// };
-
-const increaseQuantity = function() {
-
-
-}
-
 const addNewItem = function(itemName, price, size) {
   const $newItem = $(`<tr class="cart-row">
     <td class="cart-name">${itemName}</td>
@@ -158,91 +122,4 @@ const addNewItem = function(itemName, price, size) {
     $(removeBtn).on('click', removeCartItem);
     const quantityChange = $('.quantity-input');
     $(quantityChange).on('change', quantityChanged);
-
 }
-  // } else if (){
-  //   cartNames.each(function() {
-  //   const name = $(this).text();
-  //   console.log(name);
-  //   const cartContainer = $(this).closest('.cart-row');
-  //   const sizeContainer = $(cartContainer).find('.cart-size');
-  //   const sizeCart = sizeContainer.text();
-  //   if (name === itemName && sizeCart === size) {
-  //     const quantity = $(cartContainer).find('.quantity-input');
-  //     let currentQuantity = parseInt(quantity.val());
-  //     currentQuantity += 1;
-  //     $(quantity).val(currentQuantity);
-  //     return false;
-  //   )}
-    // };
-
-
-// const addItemToCart = function(itemName, price, size) {
-//   const cartNames = $('.cart-name');
-//
-//     const name = $(this).text();
-//     console.log(name);
-//     const cartContainer = $(this).closest('.cart-row');
-//     const sizeContainer = $(cartContainer).find('.cart-size');
-//     const sizeCart = sizeContainer.text();
-//     if (name === itemName && sizeCart === size) {
-//       const quantity = $(cartContainer).find('.quantity-input');
-//       let currentQuantity = parseInt(quantity.val());
-//       currentQuantity += 1;
-//       $(quantity).val(currentQuantity);
-//       return false;
-//       }
-//     })
-//     const $newItem = $(`<tr class="cart-row">
-//     <td class="cart-name">${itemName}</td>
-//     <td class="cart-size">${size}</td>
-//     <td class="item-price">${price}</td>
-//     <td><input class="quantity-input" type="number" value="1"></td>
-//     <td><button class="remove-btn" type="button">Delete</button></td>
-//     </tr>`)
-//     const $container = $('.cart-items');
-//     $container.append($newItem);
-//     const removeBtn = $('.remove-btn');
-//     $(removeBtn).on('click', removeCartItem);
-//     const quantityChange = $('.quantity-input');
-//     $(quantityChange).on('change', quantityChanged);
-// };
-
-
-
-
-
-
-const confirmClicked = function() {
-
-}
-
-// const cartNames = $('.cart-name');
-//     cartNames.each(function() {
-//     const name = $(this).text();
-//     const cartContainer = $(this).closest('.cart-row');
-//     const sizeContainer = $(cartContainer).find('.cart-size');
-//     const sizeCart = sizeContainer.text();
-//     if (name !== itemName && sizeCart !== size) {
-//       const $newItem = $(`<tr class="cart-row">
-//        <td class="cart-name">${itemName}</td>
-//        <td class="cart-size">${size}</td>
-//        <td class="item-price">${price}</td>
-//        <td><input class="quantity-input" type="number" value="1"></td>
-//        <td><button class="remove-btn" type="button">Delete</button></td>
-//        </tr>`)
-//        const $container = $('.cart-items');
-//        $container.append($newItem);
-//        const removeBtn = $('.remove-btn');
-//        $(removeBtn).on('click', removeCartItem);
-//        const quantityChange = $('.quantity-input');
-//        $(quantityChange).on('change', quantityChanged);
-//     } else {
-//       const quantity = $(cartContainer).find('.quantity-input');
-//       let currentQuantity = parseInt(quantity.val());
-//       currentQuantity += 1;
-//       $(quantity).val(currentQuantity);
-
-//   }
-// })
-// };

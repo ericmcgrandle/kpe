@@ -62,8 +62,12 @@ const addToCartClick = function(event) {
 };
 
 const addItemToCart = function(itemName, price, size) {
+<<<<<<< HEAD
   const cartNames = $('.cart-name');
   // console.log('this is cart names', cartNames);
+=======
+  const cartNames = $('.cart-row');
+>>>>>>> 7ee183a770d9d1d05e8ca9f6144ec7257082f958
   if (cartNames.length === 0) {
     addNewItem(itemName, price, size)
   } else if (!cartNames.text().includes(itemName)) {
@@ -74,6 +78,7 @@ const addItemToCart = function(itemName, price, size) {
     //Loop through each item in the cart
     cartNames.each(function() {
       const container = $(this).closest('.cart-row');
+<<<<<<< HEAD
       const sizeContainer = $(container).find('.cart-size');
       const sizeCart = sizeContainer.text();
       const cartName = $(this).text();
@@ -100,14 +105,42 @@ const addItemToCart = function(itemName, price, size) {
       }
     }
   })
+=======
+      const sizeContainer = $(container).find('.cart-size').text();
+      const nameContainer = $(container).find('.cart-name').text();
+
+      //if size is the same exit foreach loop and name is same
+      if (sizeContainer === size && nameContainer === itemName) {
+        return false;
+      }
+      count++;
+    });
+
+    //if count is the same as length that size was not in the cart
+    if (cartNames.length === count) {
+      addNewItem(itemName, price, size);
+    } else {
+      //dom traversal to find and update quantity
+      const table = $('#cart-table-id');
+      const tbody = $(table.children()[1]);
+      const tr = $(tbody.children()[count]);
+      const quantity = $(tr).find('.quantity-input');
+      let currentQuantity = parseInt(quantity.val());
+      currentQuantity += 1;
+      $(quantity).val(currentQuantity);
+    }
+>>>>>>> 7ee183a770d9d1d05e8ca9f6144ec7257082f958
   }
 };
 // const quantity = $(cartContainer).find('.quantity-input');
 // $(allSizes).text().includes(size) &&
 
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> 7ee183a770d9d1d05e8ca9f6144ec7257082f958
 const addNewItem = function(itemName, price, size) {
   const $newItem = $(`<tr class="cart-row">
     <td class="cart-name">${itemName}</td>

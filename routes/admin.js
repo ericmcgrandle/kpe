@@ -9,6 +9,7 @@ const pendingData = require('../helper_functions/pendingData');
 const updateDB = require('../helper_functions/updateDatabase');
 const send_sms = require('../helper_functions/sms');
 const sms = require('../helper_functions/sms');
+const pastOrdersPending = require('../helper_functions/pastOrdersPending')
 
 
 module.exports = (db) => {

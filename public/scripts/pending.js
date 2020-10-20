@@ -75,6 +75,7 @@ $( document ).ready(function() {
       }
     }
 
+    //Confirm button handler
     let adminConfirmButton = $('.adminConfirmButton');
     $(adminConfirmButton).on('click', function(event) {
       event.preventDefault();
@@ -106,7 +107,7 @@ $( document ).ready(function() {
       $(pendingDiv).remove();
       $('#orders_in_process').append($(confirmedOrder));
 
-      //update database
+      //update database for confirm button
       $.ajax({
         method: "POST",
         url: "/admin/updateTimeDatabase",
@@ -115,6 +116,31 @@ $( document ).ready(function() {
         console.log('update complete');
       });
     });
+
+
+    // complete button
+    const $completeButton = $('#adminComplete');
+    $completeButton.on('click', function (event) {
+      event.preventDefault();
+      // find div 
+      const button = event.target;
+      const pendingDiv = button.closest('.pending-order');
+      let order = $(pendingDiv).find('.orderId').text();
+      const orderId = order.substring(6);
+
+      $(pendingDiv).remove();
+      // update database for complete button
+      $.ajax({
+        method: "POST",
+        url: "/admin/updateCompletedTime",
+        data: { orderId }
+      }).done((orders) => {
+        console.log('update complete');
+      });
+
+    });
+
   };
+
 });
 

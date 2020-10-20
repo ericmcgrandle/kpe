@@ -19,6 +19,24 @@ const updateTimeDatabase = (obj, db) => {
 
 };
 
+const updateCompletedAt = (obj, db) => {
+  return db.query(`
+  UPDATE orders
+  SET completed_at = NOW()
+  WHERE id = ${obj.orderId}
+  ;`)
+  .then(() =>
+    db.query(`
+    SELECT phone
+    FROM users
+    JOIN orders ON (users.id = orders.user_id)
+    WHERE orders.id = ${obj.orderId}
+    ;`)
+  )
+  .catch(err => console.log('error', err));
+};
+
 module.exports = {
-  updateTimeDatabase
+  updateTimeDatabase,
+  updateCompletedAt
 }

@@ -12,7 +12,7 @@ const sendSMS = (number, message) => {
   .create({
     body: `${message}`,
     from: '+17622528408',
-    to: `7788723563`
+    to: `${number}`
   })
   .then(message => console.log(message.sid));
 

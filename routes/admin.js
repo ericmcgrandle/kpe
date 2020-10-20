@@ -6,7 +6,7 @@ router.use(bodyParser.urlencoded({extended: true}));
 
 const helperFunctions = require('../helper_functions/admin');
 const pendingData = require('../helper_functions/pendingData');
-const updateDB = require('../helper_functions/updateTimeDatabase');
+const updateDB = require('../helper_functions/updateDatabase');
 const send_sms = require('../helper_functions/sms');
 const sms = require('../helper_functions/sms');
 
@@ -46,7 +46,7 @@ module.exports = (db) => {
     .catch(err => console.log('error with login', err));
   });
 
-  //update time database
+  //update time database confirm button
   router.post("/updateTimeDatabase", (req, res) => {
     const time = req.body.inputVal;
     updateDB.updateTimeDatabase(req.body, db)
@@ -56,5 +56,16 @@ module.exports = (db) => {
     .catch(err => console.log('err', err));
   });
 
+  //update database complete button
+  router.post("/updateCompletedTime", (req, res) => {
+    updateDB.updateCompletedAt(req.body, db)
+    .then(res => {
+      sms.sendSMS(res.rows[0].phone, 'Your order is ready for pickup!');
+    })
+    .catch(err => console.log('err', err))
+  });
+  
   return router;
 };
+
+

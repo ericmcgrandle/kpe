@@ -5,6 +5,7 @@ const getPastOrders = (db) => {
     JOIN users ON orders.user_id = users.id
     WHERE orders.completed_at IS NOT NULL
     ORDER BY orders.completed_at DESC
+    LIMIT 10
     ;`)
   .then(res => res.rows)
   .catch(err => console.log('error', err));

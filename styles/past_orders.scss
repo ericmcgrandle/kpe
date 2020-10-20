@@ -1,0 +1,53 @@
+body {
+  font-family: 'Display Playfair';
+  background-color: #DAAD86;
+}
+.container-past-orders {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  opacity: 70%;
+  background-color: white;
+  width: 75%;
+  margin: 1em auto;
+  border-radius: 1.5em;
+  padding: 1em;
+  /* box-shadow: 0px 11px 35px 2px white; */
+}
+
+#order-complete {
+  color: black;
+  font-family: 'Display Playfair';
+  font-weight: bold;
+  font-size: 40px;
+  text-align: center;
+  opacity: 70%;
+  background-color: white;
+  margin: 1em auto;
+  padding: 1em;
+  width: 50%;
+  border-radius: 1.5em;
+}
+
+.order-id {
+font-weight: 800;
+font-size: 20px;
+align-self: center;
+}
+
+.completed-at {
+font-weight: 800;
+align-self: center;
+}
+
+.order-name {
+font-weight: 800;
+align-self: center;
+}
+
+.order-phone-number {
+font-weight: 800;
+align-self: center;
+}
+

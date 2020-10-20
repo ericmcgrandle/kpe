@@ -1,0 +1,29 @@
+body {
+  font-family: 'Display Playfair';
+  background-color: #DAAD86;
+}
+
+.confirmation-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start
+}
+
+.confirmation-content {
+  flex-basis: 50%;
+  margin-top: 10em;
+  border-radius: 1.5em; 
+  padding: 1em;
+  width: 75%;
+  opacity: 70%;
+  background-color: white;
+  align-self: center;
+  text-align: center;
+}
+
+.time-box {
+  padding-top: 5em;
+  align-self: center;
+
+}

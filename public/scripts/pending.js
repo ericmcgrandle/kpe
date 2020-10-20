@@ -10,7 +10,7 @@ $( document ).ready(function() {
 
 
   //Creates the div elements for pending orders
-  const createOrderElement = (obj, length) => {
+  const createOrderElement = (obj) => {
     //Order id
     let newOrder = `
       <div class="pending-order">
@@ -21,7 +21,7 @@ $( document ).ready(function() {
     for (let id of obj) {
       newOrder += `
         <p>
-          ${id.size} === ${id.item}
+          ${id.size} ${id.item}
         </p>
       `;
     }
@@ -29,7 +29,10 @@ $( document ).ready(function() {
     //User information and form
     newOrder += `
         <p>
+          For:
+          <br>
           ${obj[0].name}
+          <br>
           ${obj[0].phone}
         </p>
     `;
@@ -37,14 +40,14 @@ $( document ).ready(function() {
     if (obj[0].confirmed) {
       newOrder += `
         <form>
-          <button type="submit" id="adminComplete">Complete</button>
+          <button class="adminForm" type="submit" id="adminComplete">Complete</button>
         </form>
       </div>`;
     } else {
       newOrder += `
           <form>
-            <input type="number" value="30" required>
-            <input class="adminConfirmButton" name="time_to_complete" type="submit" value="Confirm">
+            <input class="adminForm" type="number" value="30" required>
+            <input class="adminForm adminConfirmButton" name="time_to_complete" type="submit" value="Confirm">
           </form>
         </div>`;
     }
@@ -63,12 +66,11 @@ $( document ).ready(function() {
     }, obj);
 
     for (let id in obj) {
-      const length = obj[id].length;
       if (obj[id][0].confirmed) {
-        const $order = createOrderElement(obj[id], length);
+        const $order = createOrderElement(obj[id]);
         $('#orders_in_process').append($order);
       } else {
-        const $order = createOrderElement(obj[id], length);
+        const $order = createOrderElement(obj[id]);
         $('#append_new_orders').append($order);
       }
     }
@@ -84,11 +86,11 @@ $( document ).ready(function() {
       const inputVal = $(form).find('input').val();
       //Div element
       const pendingDiv = button.closest('.pending-order');
-      const str = pendingDiv.innerHTML;
+      console.log('pendingDiv :', pendingDiv);
+      const str = pendingDiv.outerHTML;
 
       let order = $(pendingDiv).find('.orderId').text();
       const orderId = order.substring(6);
-
 
       //Manipulate div element to have confirm button
       const substring = str.substring(str.lastIndexOf("<form>"), str.lastIndexOf("</form>") + 7);
@@ -104,6 +106,7 @@ $( document ).ready(function() {
       $(pendingDiv).remove();
       $('#orders_in_process').append($(confirmedOrder));
 
+      //update database
       $.ajax({
         method: "POST",
         url: "/admin/updateTimeDatabase",

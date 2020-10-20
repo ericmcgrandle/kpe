@@ -1,0 +1,53 @@
+main {
+  font-size: 20px;
+}
+
+.container {
+  border: 1px solid black;
+  margin: 1em;
+}
+
+.pending_confirmation {
+  background-image: url("https://images.alphacoders.com/107/1078503.jpg");
+}
+
+.orders_in_process {
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRAHeKhMiFytxaZuNKLTK4VOJBjGWO3hF0vNQ&usqp=CAU");
+}
+
+//Headers
+h3 {
+  margin: 1em auto;
+  padding: 1em;
+  color: black;
+  text-align: center;
+  width: 50%;
+  background-color: lightgray;
+  opacity: 70%;
+  border-radius: 10px;
+}
+
+.pending-order {
+  opacity: 70%;
+  margin: 1em auto;
+  width: 75%;
+  background-color: white;
+  padding: 1em;
+  text-align: center;
+}
+
+//Buttons
+.adminForm {
+  font-size: 16px;
+  text-decoration: none;
+  color: black;
+  border: black 1px solid;
+  padding: 10px 20px;
+  border-radius: 10px;
+  align-items: center;
+}
+
+.orderId {
+  font-weight: bold;
+  justify-content: center;
+}

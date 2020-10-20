@@ -1,0 +1,31 @@
+main {
+  height: 100vh;
+  background-image: url("https://www.itl.cat/pngfile/big/297-2975266_making-pizza-food-and-drink-pizzas-tomato-tomatoes.jpg");
+  border: 1px solid black;
+}
+
+.container {
+  border: 1px solid black;
+  margin: 2em auto;
+  width: 50%;
+  opacity: 70%;
+  background-color: white;
+  border-radius: 40px;
+}
+
+input {
+  font-size: 20px;
+  display: flex;
+  margin: 1.5em auto;
+  text-align: center;
+}
+
+//Button
+.submit {
+  text-decoration: none;
+  color: black;
+  border: black 1px solid;
+  padding: 10px 20px;
+  border-radius: 10px;
+  align-items: center;
+}

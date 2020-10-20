@@ -4,12 +4,17 @@ const router  = express.Router();
 const bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({extended: true}));
 
+<<<<<<< HEAD
 const helperFunctions = require('../helper_functions/admin');
 const pendingData = require('../helper_functions/pendingData');
 const updateDB = require('../helper_functions/updateDatabase');
 const send_sms = require('../helper_functions/sms');
 const sms = require('../helper_functions/sms');
 
+=======
+const helperFunctions = require('../helper_functions/admin_login');
+const pastOrdersPending = require('../helper_functions/pastOrdersPending')
+>>>>>>> past_orders
 
 module.exports = (db) => {
 
@@ -35,6 +40,12 @@ module.exports = (db) => {
   //Past_orders
   router.get("/past_orders", (req, res) => {
     res.render('past_orders');
+  });
+
+  router.get("/past_orders_data", (req,res) => {
+    pastOrdersPending.getPastOrders(db)
+    .then(data => res.json(data))
+    .catch(err => console.log('error', err));
   });
 
   //admin_login

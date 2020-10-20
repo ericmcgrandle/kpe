@@ -40,7 +40,7 @@ $( document ).ready(function() {
     if (obj[0].confirmed) {
       newOrder += `
         <form>
-          <button class="adminForm" type="submit" id="adminComplete">Complete</button>
+          <button class="adminForm adminComplete" type="submit">Complete</button>
         </form>
       </div>`;
     } else {
@@ -75,46 +75,76 @@ $( document ).ready(function() {
       }
     }
 
-    let adminConfirmButton = $('.adminConfirmButton');
-    $(adminConfirmButton).on('click', function(event) {
-      event.preventDefault();
+    //Confirm button handler
 
-      //Get div element
-      const button = event.target;
-      const form = button.closest('form');
-      //Time value
-      const inputVal = $(form).find('input').val();
-      //Div element
-      const pendingDiv = button.closest('.pending-order');
-      console.log('pendingDiv :', pendingDiv);
-      const str = pendingDiv.outerHTML;
+    const confirmButton = function () {
 
-      let order = $(pendingDiv).find('.orderId').text();
-      const orderId = order.substring(6);
+      let adminConfirmButton = $('.adminConfirmButton');
+      $(adminConfirmButton).on('click', function(event) {
+        event.preventDefault();
 
-      //Manipulate div element to have confirm button
-      const substring = str.substring(str.lastIndexOf("<form>"), str.lastIndexOf("</form>") + 7);
+        //Get div element
+        const button = event.target;
+        const form = button.closest('form');
+        //Time value
+        const inputVal = $(form).find('input').val();
+        //Div element
+        const pendingDiv = button.closest('.pending-order');
+        const str = pendingDiv.outerHTML;
 
-      const newSubstring =
-      `<form>
-      <button type="submit" id="adminComplete">Complete</button>
-      </form>`
+        let order = $(pendingDiv).find('.orderId').text();
+        const orderId = order.substring(6);
 
-      const confirmedOrder = str.replace(substring, newSubstring);
+        //Manipulate div element to have confirm button
+        const substring = str.substring(str.lastIndexOf("<form>"), str.lastIndexOf("</form>") + 7);
 
-      //remove from pending orders, add to orders in process
-      $(pendingDiv).remove();
-      $('#orders_in_process').append($(confirmedOrder));
+        const newSubstring =
+        `<form>
+        <button type="submit" class="adminForm adminComplete">Complete</button>
+        </form>`
 
-      //update database
-      $.ajax({
-        method: "POST",
-        url: "/admin/updateTimeDatabase",
-        data: { inputVal, orderId }
-      }).done((orders) => {
-        console.log('update complete');
+        const confirmedOrder = str.replace(substring, newSubstring);
+
+        //remove from pending orders, add to orders in process, create event listener
+        $(pendingDiv).remove();
+        $('#orders_in_process').append($(confirmedOrder));
+        completeButton();
+
+        //update database for confirm button
+        $.ajax({
+          method: "POST",
+          url: "/admin/updateTimeDatabase",
+          data: { inputVal, orderId }
+        });
       });
-    });
+    }
+
+    const completeButton = function () {
+      // Create event listener
+      const $completeButton = $('.adminComplete');
+      $completeButton.on('click', function (event) {
+
+        event.preventDefault();
+        // find div
+        const button = event.target;
+        const pendingDiv = button.closest('.pending-order');
+        let order = $(pendingDiv).find('.orderId').text();
+        const orderId = order.substring(6);
+
+        $(pendingDiv).remove();
+        // update database for complete button
+        $.ajax({
+          method: "POST",
+          url: "/admin/updateCompletedTime",
+          data: { orderId }
+        });
+      });
+    }
+
+    //Call functions so when page is refreshed event listeners are created
+    confirmButton();
+    completeButton();
+
   };
 });
 

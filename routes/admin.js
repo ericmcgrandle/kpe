@@ -6,9 +6,10 @@ router.use(bodyParser.urlencoded({extended: true}));
 
 const helperFunctions = require('../helper_functions/admin');
 const pendingData = require('../helper_functions/pendingData');
-const updateDB = require('../helper_functions/updateTimeDatabase');
+const updateDB = require('../helper_functions/updateDatabase');
 const send_sms = require('../helper_functions/sms');
 const sms = require('../helper_functions/sms');
+const pastOrdersPending = require('../helper_functions/pastOrdersPending')
 
 
 module.exports = (db) => {
@@ -37,6 +38,12 @@ module.exports = (db) => {
     res.render('past_orders');
   });
 
+  router.get("/past_orders_data", (req,res) => {
+    pastOrdersPending.getPastOrders(db)
+    .then(data => res.json(data))
+    .catch(err => console.log('error', err));
+  });
+
   //admin_login
   router.post("/login", (req, res) => {
     const name = req.body.name;
@@ -46,15 +53,28 @@ module.exports = (db) => {
     .catch(err => console.log('error with login', err));
   });
 
-  //update time database
+  //update time database confirm button
   router.post("/updateTimeDatabase", (req, res) => {
     const time = req.body.inputVal;
     updateDB.updateTimeDatabase(req.body, db)
-    .then(res => {
-      sms.sendSMS(res.rows[0].phone, `Your order will be ready in ${time} minutes!`);
+    .then(result => {
+      sms.sendSMS(result.rows[0].phone, `Your order will be ready in ${time} minutes!`);
+      res.sendStatus(200);
     })
     .catch(err => console.log('err', err));
   });
 
+  //update database complete button
+  router.post("/updateCompletedTime", (req, res) => {
+    updateDB.updateCompletedAt(req.body, db)
+    .then(result => {
+      sms.sendSMS(result.rows[0].phone, 'Your order is ready for pickup!');
+      res.sendStatus(200);
+    })
+    .catch(err => console.log('err', err))
+  });
+
   return router;
 };
+
+

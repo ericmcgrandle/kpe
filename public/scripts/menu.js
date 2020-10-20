@@ -73,11 +73,11 @@ const addItemToCart = function(itemName, price, size) {
     //Loop through each item in the cart
     cartNames.each(function() {
       const container = $(this).closest('.cart-row');
-      const sizeContainer = $(container).find('.cart-size');
-      const sizeCart = sizeContainer.text();
+      const sizeContainer = $(container).find('.cart-size').text();
+      const nameContainer = $(container).find('.cart-name').text();
 
-      //if size is the same exit foreach loop
-      if (sizeCart === size) {
+      //if size is the same exit foreach loop and name is same
+      if (sizeContainer === size && nameContainer === itemName) {
         return false;
       }
       count++;
@@ -90,7 +90,6 @@ const addItemToCart = function(itemName, price, size) {
       //dom traversal to find and update quantity
       const table = $('#cart-table-id');
       const tbody = $(table.children()[1]);
-      console.log('tbody :', tbody);
       const tr = $(tbody.children()[count]);
       const quantity = $(tr).find('.quantity-input');
       let currentQuantity = parseInt(quantity.val());

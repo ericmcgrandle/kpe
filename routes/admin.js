@@ -57,8 +57,9 @@ module.exports = (db) => {
   router.post("/updateTimeDatabase", (req, res) => {
     const time = req.body.inputVal;
     updateDB.updateTimeDatabase(req.body, db)
-    .then(res => {
-      sms.sendSMS(res.rows[0].phone, `Your order will be ready in ${time} minutes!`);
+    .then(result => {
+      sms.sendSMS(result.rows[0].phone, `Your order will be ready in ${time} minutes!`);
+      res.sendStatus(200);
     })
     .catch(err => console.log('err', err));
   });
@@ -66,12 +67,13 @@ module.exports = (db) => {
   //update database complete button
   router.post("/updateCompletedTime", (req, res) => {
     updateDB.updateCompletedAt(req.body, db)
-    .then(res => {
-      sms.sendSMS(res.rows[0].phone, 'Your order is ready for pickup!');
+    .then(result => {
+      sms.sendSMS(result.rows[0].phone, 'Your order is ready for pickup!');
+      res.sendStatus(200);
     })
     .catch(err => console.log('err', err))
   });
-  
+
   return router;
 };
 

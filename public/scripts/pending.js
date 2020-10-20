@@ -115,17 +115,9 @@ $( document ).ready(function() {
           method: "POST",
           url: "/admin/updateTimeDatabase",
           data: { inputVal, orderId }
-        }).done((orders) => {
-          console.log('update complete');
         });
       });
-
-
-
-
     }
-
-
 
     const completeButton = function () {
       // Create event listener
@@ -145,12 +137,9 @@ $( document ).ready(function() {
           method: "POST",
           url: "/admin/updateCompletedTime",
           data: { orderId }
-        }).done((orders) => {
-          console.log('update complete');
         });
       });
     }
-
 
     //Call functions so when page is refreshed event listeners are created
     confirmButton();

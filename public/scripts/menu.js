@@ -63,6 +63,7 @@ const addToCartClick = function(event) {
 
 const addItemToCart = function(itemName, price, size) {
   const cartNames = $('.cart-name');
+  // console.log('this is cart names', cartNames);
   if (cartNames.length === 0) {
     addNewItem(itemName, price, size)
   } else if (!cartNames.text().includes(itemName)) {
@@ -73,34 +74,36 @@ const addItemToCart = function(itemName, price, size) {
       const sizeContainer = $(cartContainer).find('.cart-size');
       const sizeCart = sizeContainer.text();
       const cartName = $(this).text();
-      console.log('this is name', itemName);
-      console.log('this is cartName', cartName);
-      console.log('this is sizeCart', sizeCart);
-      console.log('this is size', size)
-      if (cartName === itemName) {
-        for(let i = 0; i < 3; i ++) {
-        if (sizeCart === size) {
-        console.log('im in quantity increase')
-        const quantity = $(cartContainer).find('.quantity-input');
-        let currentQuantity = parseInt(quantity.val());
-        currentQuantity += 1;
-        $(quantity).val(currentQuantity);
-        }
+      if (cartName === itemName ) {
+        const allSizes = $(`.cart-row:contains(${cartName})`).children('td.cart-size');
+        console.log('all sizes', allSizes);
+        if(!allSizes.text().includes(size)) {
+          addNewItem(itemName, price, size);
+        } else {
+          $(allSizes).each((index)=> {
+            console.log('this is all sizes index', allSizes[index]);
+            console.log('this is all size includes size', allSizes.text().includes(size));
+            if ($(allSizes[index]).text().toLowerCase() !== size.toLowerCase()) {
+              return;
+            }
+            console.log('sizes are the same');
+            const quantity = $(allSizes[index]).siblings().children('input.quantity-input');
+            console.log('this is quantity', quantity);
+            let currentQuantity = parseInt(quantity.val());
+            currentQuantity += 1;
+            $(quantity).val(currentQuantity);
+
+        })
       }
-    } else {
-
-
-  //       console.log('im in the else statement');
-  //       addNewItem(itemName, price, size)
-  //       return false;
-  //     } else {
-  //   console.log('im down here');
-  //   addNewItem(itemName, price, size);
-  // }
     }
-})
-}
+  })
+  }
 };
+// const quantity = $(cartContainer).find('.quantity-input');
+// $(allSizes).text().includes(size) &&
+
+
+
 
 // const checkSize = function(cartName, sizeCart) {
 //   const sizeArray = ['Small', 'Medium', 'Large'];

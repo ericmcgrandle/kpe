@@ -1,3 +1,5 @@
+// const { ConnectAppInstance } = require("twilio/lib/rest/api/v2010/account/connectApp");
+
 $(document).ready(function() {
   let removeBtn = $('.remove-btn');
   removeBtn.each(function() {
@@ -61,8 +63,86 @@ const addToCartClick = function(event) {
 
 const addItemToCart = function(itemName, price, size) {
   const cartNames = $('.cart-name');
-  if (!cartNames) {
-    const $newItem = $(`<tr class="cart-row">
+  if (cartNames.length === 0) {
+    addNewItem(itemName, price, size)
+  } else if (!cartNames.text().includes(itemName)) {
+    addNewItem(itemName, price, size);
+  } else {
+    cartNames.each(function() {
+      const cartContainer = $(this).closest('.cart-row');
+      const sizeContainer = $(cartContainer).find('.cart-size');
+      const sizeCart = sizeContainer.text();
+      const cartName = $(this).text();
+      console.log('this is name', itemName);
+      console.log('this is cartName', cartName);
+      console.log('this is sizeCart', sizeCart);
+      console.log('this is size', size)
+      if (cartName === itemName) {
+        for(let i = 0; i < 3; i ++) {
+        if (sizeCart === size) {
+        console.log('im in quantity increase')
+        const quantity = $(cartContainer).find('.quantity-input');
+        let currentQuantity = parseInt(quantity.val());
+        currentQuantity += 1;
+        $(quantity).val(currentQuantity);
+        }
+      }
+    } else {
+
+
+  //       console.log('im in the else statement');
+  //       addNewItem(itemName, price, size)
+  //       return false;
+  //     } else {
+  //   console.log('im down here');
+  //   addNewItem(itemName, price, size);
+  // }
+    }
+})
+}
+};
+
+// const checkSize = function(cartName, sizeCart) {
+//   const sizeArray = ['Small', 'Medium', 'Large'];
+//   for(let i = 0; i< 3; i++) {
+//     if ( sizeArray[i] === size && cartName === itemName) {
+//       console.log('im in quantity increase')
+//       const quantity = $(cartContainer).find('.quantity-input');
+//       let currentQuantity = parseInt(quantity.val());
+//       currentQuantity += 1;
+//       $(quantity).val(currentQuantity);
+//   }
+//   }
+
+// }
+
+  //   if () {
+  //     console.log('this is itemName', itemName);
+  //     console.log('this is name', name);
+  //     console.log('this is size', size);
+  //     console.log('this is sizeCart', sizeCart);
+  //     const quantity = $(cartContainer).find('.quantity-input');
+  //     let currentQuantity = parseInt(quantity.val());
+  //     currentQuantity += 1;
+  //     $(quantity).val(currentQuantity);
+  //     return false;
+  //   }
+  //   })
+  // } else {
+  //   console.log('im down here');
+  //   addNewItem(itemName, price, size);
+  //   return false;
+  // }
+//   }
+// };
+
+const increaseQuantity = function() {
+
+
+}
+
+const addNewItem = function(itemName, price, size) {
+  const $newItem = $(`<tr class="cart-row">
     <td class="cart-name">${itemName}</td>
     <td class="cart-size">${size}</td>
     <td class="item-price">${price}</td>
@@ -75,26 +155,28 @@ const addItemToCart = function(itemName, price, size) {
     $(removeBtn).on('click', removeCartItem);
     const quantityChange = $('.quantity-input');
     $(quantityChange).on('change', quantityChanged);
-  } else {
-    cartNames.each(function() {
-    const name = $(this).text();
-    console.log(name);
-    const cartContainer = $(this).closest('.cart-row');
-    const sizeContainer = $(cartContainer).find('.cart-size');
-    const sizeCart = sizeContainer.text();
-    if (name === itemName && sizeCart === size) {
-      const quantity = $(cartContainer).find('.quantity-input');
-      let currentQuantity = parseInt(quantity.val());
-      currentQuantity += 1;
-      $(quantity).val(currentQuantity);
-      return false;
-    )}
-    };
+
+}
+  // } else if (){
+  //   cartNames.each(function() {
+  //   const name = $(this).text();
+  //   console.log(name);
+  //   const cartContainer = $(this).closest('.cart-row');
+  //   const sizeContainer = $(cartContainer).find('.cart-size');
+  //   const sizeCart = sizeContainer.text();
+  //   if (name === itemName && sizeCart === size) {
+  //     const quantity = $(cartContainer).find('.quantity-input');
+  //     let currentQuantity = parseInt(quantity.val());
+  //     currentQuantity += 1;
+  //     $(quantity).val(currentQuantity);
+  //     return false;
+  //   )}
+    // };
 
 
 // const addItemToCart = function(itemName, price, size) {
 //   const cartNames = $('.cart-name');
-//     cartNames.each(function() {
+//
 //     const name = $(this).text();
 //     console.log(name);
 //     const cartContainer = $(this).closest('.cart-row');
@@ -125,20 +207,6 @@ const addItemToCart = function(itemName, price, size) {
 
 
 
-
-
-
-
-
-
-  // const increaseQuantity = function() {
-
-
-  // }
-
-  // const createNewItem = function() {
-
-  // }
 
 
 
@@ -175,5 +243,3 @@ const confirmClicked = function() {
 //   }
 // })
 // };
-
-

@@ -98,6 +98,8 @@ const addItemToCart = function(itemName, price, size) {
     }
   }
 };
+// const quantity = $(cartContainer).find('.quantity-input');
+// $(allSizes).text().includes(size) &&
 
 const addNewItem = function(itemName, price, size) {
   const $newItem = $(`<tr class="cart-row">

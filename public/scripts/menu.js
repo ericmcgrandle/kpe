@@ -62,12 +62,7 @@ const addToCartClick = function(event) {
 };
 
 const addItemToCart = function(itemName, price, size) {
-<<<<<<< HEAD
-  const cartNames = $('.cart-name');
-  // console.log('this is cart names', cartNames);
-=======
   const cartNames = $('.cart-row');
->>>>>>> 7ee183a770d9d1d05e8ca9f6144ec7257082f958
   if (cartNames.length === 0) {
     addNewItem(itemName, price, size)
   } else if (!cartNames.text().includes(itemName)) {
@@ -78,34 +73,6 @@ const addItemToCart = function(itemName, price, size) {
     //Loop through each item in the cart
     cartNames.each(function() {
       const container = $(this).closest('.cart-row');
-<<<<<<< HEAD
-      const sizeContainer = $(container).find('.cart-size');
-      const sizeCart = sizeContainer.text();
-      const cartName = $(this).text();
-      if (cartName === itemName ) {
-        const allSizes = $(`.cart-row:contains(${cartName})`).children('td.cart-size');
-        console.log('all sizes', allSizes);
-        if(!allSizes.text().includes(size)) {
-          addNewItem(itemName, price, size);
-        } else {
-          $(allSizes).each((index)=> {
-            console.log('this is all sizes index', allSizes[index]);
-            console.log('this is all size includes size', allSizes.text().includes(size));
-            if ($(allSizes[index]).text().toLowerCase() !== size.toLowerCase()) {
-              return;
-            }
-            console.log('sizes are the same');
-            const quantity = $(allSizes[index]).siblings().children('input.quantity-input');
-            console.log('this is quantity', quantity);
-            let currentQuantity = parseInt(quantity.val());
-            currentQuantity += 1;
-            $(quantity).val(currentQuantity);
-
-        })
-      }
-    }
-  })
-=======
       const sizeContainer = $(container).find('.cart-size').text();
       const nameContainer = $(container).find('.cart-name').text();
 
@@ -129,18 +96,11 @@ const addItemToCart = function(itemName, price, size) {
       currentQuantity += 1;
       $(quantity).val(currentQuantity);
     }
->>>>>>> 7ee183a770d9d1d05e8ca9f6144ec7257082f958
   }
 };
 // const quantity = $(cartContainer).find('.quantity-input');
 // $(allSizes).text().includes(size) &&
 
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> 7ee183a770d9d1d05e8ca9f6144ec7257082f958
 const addNewItem = function(itemName, price, size) {
   const $newItem = $(`<tr class="cart-row">
     <td class="cart-name">${itemName}</td>

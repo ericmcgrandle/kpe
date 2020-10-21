@@ -95,6 +95,14 @@ $( document ).ready(function() {
         let order = $(pendingDiv).find('.orderId').text();
         const orderId = order.substring(6);
 
+        const updateUserTime = function () {
+          $.ajax({
+            method: "POST",
+            url: "/confirmation",
+            data: { inputVal }
+          });
+        }
+
         //Manipulate div element to have confirm button
         const substring = str.substring(str.lastIndexOf("<form>"), str.lastIndexOf("</form>") + 7);
 
@@ -146,5 +154,6 @@ $( document ).ready(function() {
     completeButton();
 
   };
+
 });
 

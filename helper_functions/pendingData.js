@@ -11,7 +11,7 @@ const getPending = (db) => {
   .catch(err => console.log('error', err));
 };
 
-
 module.exports = {
   getPending
 }
+

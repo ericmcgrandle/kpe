@@ -57,6 +57,29 @@ const updateOrderPurchase = (obj, db) => {
       NOW(), NULL, NULL) 
     ;`)
   )
+  .then(() => {
+    for(let item of obj.objOrderData) {
+      db.query(`
+      INSERT INTO carts (order_id, menu_id)
+      VALUES 
+      (
+        (
+          SELECT orders.id
+          FROM orders
+          ORDER BY created_at DESC
+          LIMIT 1
+        ), 
+        (
+          SELECT menu_items.id
+          FROM menu_items
+          WHERE item = '${item.name}'
+          AND price = ${Number(item.price)}
+        )
+      )
+      ;`)
+    }
+    return true;
+  })
   .catch(err => console.log('error', err));
 };
 

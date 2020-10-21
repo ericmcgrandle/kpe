@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="stylesheet" href="../styles/confirmation.css">
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,16 +13,16 @@
 
 </head>
 <body>
-  <h5>Confirmation</h5>
-
-  <div>
-    -Menu data-
-    -User data-
+  <%- include('partials/_header') %>
+  <div class="confirmation-page">
+  <div class="confirmation-content">
+  <h1>You have successfully placed an order!</h1>
+  <p>Stay tuned for the restaurant to confirm your order and return an estimate on the time...</p>
   </div>
-
-  <form id="confirm_order">
-    <input type="submit" value="Confirm">
+  <form class="time-box">
+    <input placeholder="time">
   </form>
+  </div>
 
 </body>
 </html>

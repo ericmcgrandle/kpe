@@ -39,8 +39,20 @@ const removeCartItem = function(event) {
   
   
   tableRow.remove();
+<<<<<<< HEAD
   updateCartTotal()
   };
+=======
+  updateCartTotal();
+
+  //If user deletes all items from cart, hide cart
+  const cartNames = $('.cart-row');
+  if (cartNames.length === 0) {
+    $('#cart').css('visibility', "hidden");
+  }
+
+};
+>>>>>>> cf84f4cb232ee8eeb5d7c76bdf29e6285cb7874a
 
 const quantityChanged = function(event) {
   const input = event.target;
@@ -87,6 +99,11 @@ const addToCartClick = function(event) {
 
 const addItemToCart = function(itemName, price, size) {
   const cartNames = $('.cart-row');
+  //If user adds something to cart, show cart
+  if (cartNames.length+1 !== 0) {
+    $('#cart').css('visibility', "visible");
+  }
+
   if (cartNames.length === 0) {
     addNewItem(itemName, price, size)
   } else if (!cartNames.text().includes(itemName)) {

@@ -74,7 +74,18 @@ tr.quantity-input {
 }
 
 #cart {
-  visibility: hidden;
+  border: 1px solid black;
+  margin: 1em;
+  // visibility: hidden;
+}
+
+.subtotal-confirm {
+  border: 1px solid black;
+  display: flex;
+}
+
+.contact-form {
+  border: 1px solid black;
 }
 
 

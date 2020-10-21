@@ -33,29 +33,12 @@ body {
   flex-direction: column;
 }
 
-h2.cart-title {
-  margin: 30px;
-}
-
-table.cart-table {
-  width: 80%;
-  text-align: center;
-}
-
 .quantity-input {
   width: 40px;
 }
 
 tr.quantity-input {
   width: 5%;
-}
-
-.subtotal-confirm {
-  display: flex;
-  justify-content: space-between;
-  margin: 50px 20px 20px 50px;
-
-
 }
 
 .cart-total {
@@ -76,16 +59,58 @@ tr.quantity-input {
 #cart {
   border: 1px solid black;
   margin: 1em;
+  //TODO ADD VISIBILITY
   // visibility: hidden;
-}
-
-.subtotal-confirm {
-  border: 1px solid black;
-  display: flex;
 }
 
 .contact-form {
   border: 1px solid black;
+}
+
+.cart-title {
+  text-align: center;
+  border: 1px solid black;
+  margin: 1em;
+}
+
+.cart-table {
+  width: 80%;
+  text-align: center;
+  border: 1px solid black;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+//Add spacing between cart rows
+.cart-row > td {
+  border-top: 5px solid;
+  border-bottom: 5px solid;
+  border-color: transparent;
+}
+
+.subtotal-confirm {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-wrap: wrap;
+  margin: 1em;
+}
+
+.cart-total {
+  display: flex;
+  flex-basis: 100%;
+  margin: 1em;
+}
+
+.contact-form > input {
+  margin: 0.5em auto;
+  width: 75%;
+}
+
+.total-price {
+  position: fixed;
+  right: 0px;
+  bottom: 0px;
 }
 
 

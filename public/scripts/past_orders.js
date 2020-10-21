@@ -3,7 +3,6 @@ $(document).ready(() => {
     method: "GET",
     url: "/admin/past_orders_data"
   }).done((orders) => {
-
     renderPastOrders(orders);
   });
 

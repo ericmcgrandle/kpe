@@ -39,7 +39,6 @@ app.use(express.static("public"));
 
 // Separated Routes for each Resource
 const main = require("./routes/main");
-//TODO
 const admin = require('./routes/admin');
 
 //For main
@@ -54,7 +53,7 @@ app.use("/admin", admin(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  res.render("index");
+  res.render("homepage");
 });
 
 app.listen(PORT, () => {

@@ -8,6 +8,8 @@
 const express = require('express');
 const router  = express.Router();
 
+const updateDB = require('../helper_functions/updateDatabase');
+
 module.exports = (db) => {
   //Homepage
   router.get("/homepage", (req, res) => {
@@ -28,6 +30,15 @@ module.exports = (db) => {
   router.get("/success", (req, res) => {
     res.render('success');
   });
+
+  router.post("/updateOrderPurchase", (req, res)  => {
+    updateDB.updateOrderPurchase(req.body, db);
+  });
+
+  // router.post("/purchaseClickedData", (req, res) => {
+  //   console.log('this is req', req.body);
+  //   updateDB.puchaseData()
+  // });
 
   return router;
 

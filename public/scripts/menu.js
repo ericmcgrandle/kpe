@@ -5,10 +5,11 @@ let objOrderData = [];
 
 
 $(document).ready(function() {
-  let removeBtn = $('.remove-btn');
-  removeBtn.each(function() {
-    $(this).on('click', removeCartItem)
-  })
+  // let removeBtn = $('.remove-btn');
+  // removeBtn.each(function() {
+  //   console.log('GETTING CALED FROM TOP');
+  //   $(this).on('click', removeCartItem)
+  // })
   const inputQuantities = $('.quantity-input');
   inputQuantities.each(function() {
     $(this).on('change', quantityChanged)
@@ -17,14 +18,12 @@ $(document).ready(function() {
   addSizeBtns.each(function() {
     $(this).on('click', addToCartClick);
   })
-  // const confirmButton = $('.confirm-btn');
-  // $(confirmButton).on('click', confirmClicked);
+  const confirmButton = $('.confirm-btn');
+  $(confirmButton).on('click', purchaseClicked);
 
 });
 
 const removeCartItem = function(event) {
-
-    console.log('REMOVE CART ITEM FUNCTION RUNNING');
 
   const buttonClicked = event.target;
   // console.log('this is buttonClicked', buttonClicked);
@@ -33,11 +32,10 @@ const removeCartItem = function(event) {
   const cartName = $(tableRow).find('.cart-name').text();
   
   //Find index of object in array
+  console.log('object', objOrderData)
   const index = objOrderData.findIndex(x => (x.name === cartName && x.size === cartSize));
-  console.log('index', index);
-  console.log('this is the array BEFORE', objOrderData);
-  const finalArray = objOrderData.splice(index);
-  console.log('this is the array AFTER', finalArray);
+  objOrderData.splice(index, 1);
+  console.log('final array', objOrderData)
   
   
   tableRow.remove();
@@ -83,7 +81,6 @@ const addToCartClick = function(event) {
     size: size
   };
   objOrderData.push(object);
-  console.log("here it is", objOrderData)
   addItemToCart(itemName, price, size);
   updateCartTotal();
 };
@@ -138,8 +135,30 @@ const addNewItem = function(itemName, price, size) {
     </tr>`)
     const $container = $('.cart-items');
     $container.append($newItem);
+
+    console.log('GETTING CALLED FROM ADD NEW ITEM'); 
     const removeBtn = $('.remove-btn');
+    $(removeBtn).off();
     $(removeBtn).on('click', removeCartItem);
+    
+    
     const quantityChange = $('.quantity-input');
     $(quantityChange).on('change', quantityChanged);
+};
+
+const purchaseClicked = function(event) {
+  const button = $(this);
+  const form = button.closest('.contact-form');
+  const name = $(form).find('.contact-name').val();
+  const phone = $(form).find('.contact-phone').val();
+  console.log('this is phone', phone);
+  console.log('this is name', name);
+
+  $.ajax({
+    method: "POST",
+    url: "/updateOrderPurchase",
+    data: { objOrderData, name, phone }
+  }).done((user) => {
+    console.log('USER', user);
+  });
 }

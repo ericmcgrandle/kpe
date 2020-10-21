@@ -42,7 +42,7 @@ const updateOrderPurchase = (obj, db) => {
   console.log('object', obj.phone);
     return db.query(`
     INSERT INTO users (name, phone)
-    VALUES ('${obj.name}', ${obj.phone})  
+    VALUES ('${obj.name}', ${obj.phone})
     ;`)
   .then(() =>
     db.query(`
@@ -54,21 +54,21 @@ const updateOrderPurchase = (obj, db) => {
       WHERE users.name = '${obj.name}'
       AND users.phone = ${obj.phone}
       ),
-      NOW(), NULL, NULL) 
+      NOW(), NULL, NULL)
     ;`)
   )
   .then(() => {
     for(let item of obj.objOrderData) {
       db.query(`
       INSERT INTO carts (order_id, menu_id)
-      VALUES 
+      VALUES
       (
         (
           SELECT orders.id
           FROM orders
           ORDER BY created_at DESC
           LIMIT 1
-        ), 
+        ),
         (
           SELECT menu_items.id
           FROM menu_items

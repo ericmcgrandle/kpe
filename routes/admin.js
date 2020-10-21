@@ -74,6 +74,11 @@ module.exports = (db) => {
     .catch(err => console.log('err', err))
   });
 
+  router.post("/updateOrderPurchase", (req, res)  => {
+    updateDB.updateOrderPurchase(req.body)
+    console.log("HERE IT IS", req.body)
+  });
+
   return router;
 };
 

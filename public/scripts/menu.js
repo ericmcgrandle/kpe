@@ -1,5 +1,9 @@
 // const { ConnectAppInstance } = require("twilio/lib/rest/api/v2010/account/connectApp");
 
+let objOrderData = [];
+    
+
+
 $(document).ready(function() {
   let removeBtn = $('.remove-btn');
   removeBtn.each(function() {
@@ -13,17 +17,32 @@ $(document).ready(function() {
   addSizeBtns.each(function() {
     $(this).on('click', addToCartClick);
   })
-  const confirmButton = $('.confirm-btn');
-  $(confirmButton).on('click', confirmClicked);
+  // const confirmButton = $('.confirm-btn');
+  // $(confirmButton).on('click', confirmClicked);
 
 });
 
 const removeCartItem = function(event) {
+
+    console.log('REMOVE CART ITEM FUNCTION RUNNING');
+
   const buttonClicked = event.target;
+  // console.log('this is buttonClicked', buttonClicked);
   const tableRow = buttonClicked.closest('tr');
+  const cartSize = $(tableRow).find('.cart-size').text();
+  const cartName = $(tableRow).find('.cart-name').text();
+  
+  //Find index of object in array
+  const index = objOrderData.findIndex(x => (x.name === cartName && x.size === cartSize));
+  console.log('index', index);
+  console.log('this is the array BEFORE', objOrderData);
+  const finalArray = objOrderData.splice(index);
+  console.log('this is the array AFTER', finalArray);
+  
+  
   tableRow.remove();
   updateCartTotal()
-};
+  };
 
 const quantityChanged = function(event) {
   const input = event.target;
@@ -57,6 +76,14 @@ const addToCartClick = function(event) {
   const price = priceEl.text();
   const sizeSelected = $(priceContainer).find('.menu-size');
   const size = sizeSelected.text();
+  const priceSlice = price.slice(1,3)
+  let object = {
+    name: itemName,
+    price: priceSlice,
+    size: size
+  };
+  objOrderData.push(object);
+  console.log("here it is", objOrderData)
   addItemToCart(itemName, price, size);
   updateCartTotal();
 };

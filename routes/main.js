@@ -51,10 +51,6 @@ module.exports = (db) => {
     .catch(err => console.log('error', err))
   });
 
-  router.post("/confirmation", (req, res) => {
-    console.log('req.body', req.body);
-  });
-
   return router;
 
 };

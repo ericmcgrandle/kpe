@@ -19,7 +19,7 @@ $(() => {
     if (value.confirmed) {
       addTime(value.confirmed);
     }
-  })
+  });
 
 
 

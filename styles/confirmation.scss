@@ -1,3 +1,5 @@
+$as: center;
+
 body {
   height: 95vh;
   background-image: URL('https://bigseventravel.com/wp-content/uploads/2019/05/Screenshot-2019-04-30-at-15.51.17.png');
@@ -19,12 +21,26 @@ body {
   width: 75%;
   opacity: 70%;
   background-color: white;
-  align-self: center;
+  align-self: $as;
   text-align: center;
 }
 
 .time-box {
   padding-top: 5em;
-  align-self: center;
+  align-self: $as;
 
 }
+
+#header-message {
+  font-size: 30px;
+}
+#message {
+  font-weight: 800;
+}
+footer {
+  border-top: 1px solid black;
+  font-size: 14px;
+}
+
+
+

@@ -3,6 +3,8 @@
 <head>
   <link rel="stylesheet" href="../styles/confirmation.css">
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+  integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -10,26 +12,25 @@
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/confirmation.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+  crossorigin="anonymous"></script>
 
 </head>
 <body>
 
   <%- include('partials/_header') %>
 
-  <div id="no-user" class="confirmation-page">
-    <div class="confirmation-content">
-    <h1>You have successfully placed an order!</h1>
-    <p>Stay tuned for the restaurant to confirm your order and return an estimate on the time...</p>
-    </div>
-  </div>
-
     <div id="confirm-data" class="confirmation-page">
-      <!-- User data goes here -->
+      <div class="confirmation-content" id="confirmation-message">
+        <h1 id="header-message">Thank You For Your Order!</h1>
+        <p id="message">Stay tuned for the restaurant to confirm your order and return an estimate on the time...</p>
+        <footer>We appreciate your business &#127829;</footer>
+      </div>
     </div>
 
     <div id="updated-time">
       <!-- Restaurant time goes here -->
     </div>
-
 </body>
 </html>

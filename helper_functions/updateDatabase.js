@@ -1,7 +1,5 @@
 const updateTimeDatabase = (obj, db) => {
 
-  //IN THEN UPDATE QUERY TO GET PHONE NUMBER FROM DATABASE
-
   return db.query(`
     UPDATE orders
     SET confirmed = ${obj.inputVal}
@@ -113,7 +111,7 @@ const orderReady = function(id, db) {
 
 const checkTime = (orderId, db) => {
   return db.query(`
-    SELECT confirmed FROM orders WHERE id = ${orderId};
+    SELECT confirmed, completed_at FROM orders WHERE id = ${orderId};
   `)
 };
 

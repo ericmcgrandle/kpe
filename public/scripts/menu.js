@@ -35,7 +35,7 @@ const removeCartItem = function(event) {
   //If user deletes all items from cart, hide cart
   const cartNames = $('.cart-row');
   if (cartNames.length === 0) {
-    $('#cart').css('visibility', "hidden");
+    $('#cart').css('display', 'none');
   }
 };
 
@@ -86,7 +86,7 @@ const addItemToCart = function(itemName, price, size) {
   const cartNames = $('.cart-row');
   //If user adds something to cart, show cart
   if (cartNames.length+1 !== 0) {
-    $('#cart').css('visibility', "visible");
+    $('#cart').css('display', 'inline');
   }
 
   if (cartNames.length === 0) {

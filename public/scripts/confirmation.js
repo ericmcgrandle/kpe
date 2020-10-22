@@ -11,55 +11,48 @@ $(() => {
     renderConfirmation(user);
   });
 
-  $.ajax({
-    method: "GET",
-    url: `/orderComplete/${orderId}`
-  }).done((data) => {
-    console.log('THIS IS DATA', data)
-    if (data.completed_at) {
-      renderCompleted(data);
-    }
-  })
-
-  const renderCompleted = function(data) {
-    const complete = `
-    <div class="complete-content">
-      <p>Good news... your order is ready for pickup!</p>
-    </div>
-    `
-    // $().remove();
-    $('#confirm-data').append(complete);
-  }
   //check if restaurant has updated time estimate
   $.ajax({
     method: "GET",
     url: `/checkTimeData/${orderId}`
   }).done((value) => {
-    if (value.confirmed) {
+    if (value.confirmed && !value.completed_at) {
       addTime(value.confirmed);
     }
   });
 
+  //check if restaurant has completed order
+  $.ajax({
+    method: "GET",
+    url: `/orderComplete/${orderId}`
+  }).done((data) => {
+    if (data.completed_at) {
+      renderCompleted(data);
+    }
+  });
 
 
+  const renderCompleted = function(data) {
+    const pTag = `
+    Your order is ready for pickup!
+    `;
+    $('#message').html(pTag)
+  }
 
   const renderConfirmation = (userData) => {
     const userName = `
-      <div class="confirmation-content">
-        <h1>Thank You ${userData.name} For Your Order!</h1>
-        <p>Stay tuned for the restaurant to confirm your order and return an estimate on the time...</p>
-      </div>
+      Thank You ${userData.name} For Your Order!
     `;
-    $('#no-user').remove();
-    $('#confirm-data').append(userName);
+
+    $('#header-message').html(userName);
   };
 
   const addTime = (time) => {
     const timeElement = `
-    <p>Your order will be ready in ${time} minutes!</p>
+    Your order will be ready in ${time} minutes!
     `;
-
-    $('#updated-time').append(timeElement);
-
+    $('#message').html(timeElement);
   };
 });
+
+

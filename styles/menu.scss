@@ -1,3 +1,5 @@
+$ta: center;
+
 body {
     height: 95vh;
     background-image: URL('https://bigseventravel.com/wp-content/uploads/2019/05/Screenshot-2019-04-30-at-15.51.17.png');
@@ -10,6 +12,22 @@ body {
   color: white;
   text-align: center;
   font-size: 50px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  width: 60vw;
+  border-top: 2px solid white;
+  h2 {
+    font-size: 40px;
+    align-items: center;
+  }
+  input {
+    margin: 0.5em auto;
+    width: 50%;
+    opacity: 50%;
+  }
 }
 
 .pizza-container {
@@ -48,27 +66,30 @@ tr.quantity-input {
   width: 5%;
 }
 
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  width: 60vw;
-}
+// .contact-form {
+//   display: flex;
+//   flex-direction: column;
+//   width: 60vw;
+//   border-top: 2px solid white;
+// }
 
-.contact-form h2 {
-  font-size: 40px;
-  align-items: center;
-}
+// .contact-form h2 {
+//   font-size: 40px;
+//   align-items: center;
+// }
 
-.contact-form > input {
-  margin: 0.5em auto;
-  width: 50%;
-  opacity: 50%;
-}
+
+// .contact-form > input {
+//   margin: 0.5em auto;
+//   width: 50%;
+//   opacity: 50%;
+// }
+
 
 #cart {
   margin: 1em;
   color: white;
-  visibility: hidden;
+  display: none;
 }
 
 .cart-title {
@@ -126,4 +147,8 @@ tr.quantity-input {
   border-radius: .5em;
   margin-top: 1em;
   padding: .5em;
+}
+
+.admin { 
+  display: none;
 }

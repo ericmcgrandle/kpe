@@ -1,7 +1,7 @@
 // const { ConnectAppInstance } = require("twilio/lib/rest/api/v2010/account/connectApp");
 
 let objOrderData = [];
-    
+
 
 
 $(document).ready(function() {
@@ -30,16 +30,15 @@ const removeCartItem = function(event) {
   const tableRow = buttonClicked.closest('tr');
   const cartSize = $(tableRow).find('.cart-size').text();
   const cartName = $(tableRow).find('.cart-name').text();
-  
+
   //Find index of object in array
   console.log('object', objOrderData)
   const index = objOrderData.findIndex(x => (x.name === cartName && x.size === cartSize));
   objOrderData.splice(index, 1);
   console.log('final array', objOrderData)
-  
-  
-  tableRow.remove();
 
+
+  tableRow.remove();
   updateCartTotal();
 
   //If user deletes all items from cart, hide cart
@@ -48,7 +47,6 @@ const removeCartItem = function(event) {
     $('#cart').css('visibility', "hidden");
   }
 };
-
 
 const quantityChanged = function(event) {
   const input = event.target;
@@ -149,12 +147,12 @@ const addNewItem = function(itemName, price, size) {
     const $container = $('.cart-items');
     $container.append($newItem);
 
-    console.log('GETTING CALLED FROM ADD NEW ITEM'); 
+    console.log('GETTING CALLED FROM ADD NEW ITEM');
     const removeBtn = $('.remove-btn');
     $(removeBtn).off();
     $(removeBtn).on('click', removeCartItem);
-    
-    
+
+
     const quantityChange = $('.quantity-input');
     $(quantityChange).on('change', quantityChanged);
 };

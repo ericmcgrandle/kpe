@@ -2,9 +2,17 @@ body {
   box-sizing: border-box;
 }
 
+.main-body {
+  border: 1px solid black;
+  background-image: url("https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-1.2.1&w=1000&q=80"), url("https://images5.alphacoders.com/381/381504.jpg");
+}
+
 #title {
-  padding: 10px;
-  margin: 10px;
+  // padding: 1em;
+  margin: 1em;
+  color: white;
+  text-align: center;
+  font-size: 50px;
 }
 
 .pizza-container {
@@ -18,7 +26,8 @@ body {
   border: black solid 1px;
   padding: 10px;
   margin-bottom: 30px;
-
+  background-color: white;
+  opacity: 90%;
 }
 
 .sizes-container {
@@ -26,7 +35,6 @@ body {
   flex-wrap: wrap;
   justify-content: space-between;
   text-align: center;
-
 }
 
 .size-container {
@@ -41,36 +49,30 @@ tr.quantity-input {
   width: 5%;
 }
 
-.cart-total {
-  width: 40vw;
-}
-
 .contact-form {
   display: flex;
   flex-direction: column;
   width: 60vw;
+  border: 1px solid black;
 }
 
-.confirm-btn {
-  max-width: 180px;
-  margin-left: auto;
+.contact-form > input {
+  margin: 0.5em auto;
+  width: 50%
 }
 
 #cart {
   border: 1px solid black;
   margin: 1em;
-  //TODO ADD VISIBILITY
-  // visibility: hidden;
-}
-
-.contact-form {
-  border: 1px solid black;
+  background-color: white;
+  opacity: 90%;
+  visibility: hidden;
 }
 
 .cart-title {
   text-align: center;
   border: 1px solid black;
-  margin: 1em;
+  margin: 25px;
 }
 
 .cart-table {
@@ -93,25 +95,14 @@ tr.quantity-input {
   justify-content: center;
   text-align: center;
   flex-wrap: wrap;
-  margin: 1em;
+  margin: 25px;
 }
 
 .cart-total {
   display: flex;
-  flex-basis: 100%;
+  justify-content: space-between;
   margin: 1em;
+  margin-top: 0em;
 }
-
-.contact-form > input {
-  margin: 0.5em auto;
-  width: 75%;
-}
-
-.total-price {
-  position: fixed;
-  right: 0px;
-  bottom: 0px;
-}
-
 
 

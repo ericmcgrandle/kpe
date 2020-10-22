@@ -101,7 +101,6 @@ const getUserData = (id, db) => {
 };
 
 const orderReady = function(id, db) {
-  console.log("THIS IS ID", id)
   return db.query(`
   SELECT id, completed_at
   FROM orders

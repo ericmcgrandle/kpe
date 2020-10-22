@@ -17,17 +17,13 @@ $(document).ready(function() {
 const removeCartItem = function(event) {
 
   const buttonClicked = event.target;
-  // console.log('this is buttonClicked', buttonClicked);
   const tableRow = buttonClicked.closest('tr');
   const cartSize = $(tableRow).find('.cart-size').text();
   const cartName = $(tableRow).find('.cart-name').text();
 
   //Find index of object in array
-  console.log('object', objOrderData)
   const index = objOrderData.findIndex(x => (x.name === cartName && x.size === cartSize));
   objOrderData.splice(index, 1);
-  console.log('final array', objOrderData)
-
 
   tableRow.remove();
   updateCartTotal();

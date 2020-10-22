@@ -5,6 +5,7 @@ $(() => {
   //Ajax calls for get data
   const getData = () => {
     console.log('loading data');
+
     //get user data
     $.ajax({
       method: "GET",

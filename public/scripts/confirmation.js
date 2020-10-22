@@ -1,5 +1,4 @@
 $(() => {
-
   const url = window.location.href;
   const orderId = url.substring(30);
 
@@ -31,7 +30,6 @@ $(() => {
     }
   });
 
-
   const renderCompleted = function(data) {
     const pTag = `
     Your order is ready for pickup!
@@ -54,5 +52,3 @@ $(() => {
     $('#message').html(timeElement);
   };
 });
-
-

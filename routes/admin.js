@@ -1,16 +1,18 @@
+//express server
 const express = require('express');
 const router  = express.Router();
 
+//body parser
 const bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({extended: true}));
 
+//helper functions
 const helperFunctions = require('../helper_functions/admin');
 const pendingData = require('../helper_functions/pendingData');
 const updateDB = require('../helper_functions/updateDatabase');
 const send_sms = require('../helper_functions/sms');
 const sms = require('../helper_functions/sms');
 const pastOrdersPending = require('../helper_functions/pastOrdersPending')
-
 
 module.exports = (db) => {
 
@@ -24,8 +26,13 @@ module.exports = (db) => {
     res.render('pending');
   });
 
+  //Past_orders
+  router.get("/past_orders", (req, res) => {
+    res.render('past_orders');
+  });
+
+  //gets pending data
   router.get("/pending_data", (req, res) => {
-    //gets data from pending_backend
     pendingData.getPending(db)
     .then(orders => {
       res.json(orders);
@@ -33,11 +40,7 @@ module.exports = (db) => {
     .catch(err => console.log('error with pending_data', err));
   })
 
-  //Past_orders
-  router.get("/past_orders", (req, res) => {
-    res.render('past_orders');
-  });
-
+  //gets past orders data
   router.get("/past_orders_data", (req,res) => {
     pastOrdersPending.getPastOrders(db)
     .then(data => res.json(data))

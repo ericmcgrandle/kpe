@@ -6,7 +6,6 @@ $(document).ready(() => {
     renderPastOrders(orders);
   });
 
-
   const renderPastOrders = function (orders) {
     for (let order of orders) {
     const dateObj = new Date(order.completed_at);
@@ -20,7 +19,7 @@ $(document).ready(() => {
       <p class="order-phone-number">Client phone number: ${order.phone}</p>
     </div>
     `)
-    const $past_orders = $('.append-past-orders'); 
+    const $past_orders = $('.append-past-orders');
     $past_orders.append($completedOrder);
     }
   }

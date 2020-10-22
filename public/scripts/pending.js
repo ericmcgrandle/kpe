@@ -1,5 +1,4 @@
 $( document ).ready(function() {
-
   //Gets data for pending orders
   $.ajax({
     method: "GET",
@@ -7,7 +6,6 @@ $( document ).ready(function() {
   }).done((orders) => {
     renderPending(orders);
   });
-
 
   //Creates the div elements for pending orders
   const createOrderElement = (obj) => {
@@ -55,7 +53,6 @@ $( document ).ready(function() {
     return newOrder;
   };
 
-
   //Manipulates data, calls createOrderElement, appends to html
   const renderPending = (orders) => {
     let obj = {};
@@ -76,7 +73,6 @@ $( document ).ready(function() {
     }
 
     //Confirm button handler
-
     const confirmButton = function () {
 
       let adminConfirmButton = $('.adminConfirmButton');

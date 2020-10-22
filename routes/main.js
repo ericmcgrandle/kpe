@@ -39,7 +39,14 @@ module.exports = (db) => {
     .then(result => {
       res.json(result.rows[0])
     })
-    .catch(err => console.log('error', err))
+    .catch(err => console.log('error', err));
+  });
+
+
+  router.get("/checkTimeData/:id", (req, res) => {
+    updateDB.checkTime(req.params.id, db)
+    .then(data => res.json(data.rows[0]))
+    .catch((err) => console.log('err', err));
   });
 
   router.post("/updateOrderPurchase", (req, res)  => {
@@ -50,7 +57,7 @@ module.exports = (db) => {
     .then(result => {
       res.json(result.rows);
     })
-    .catch(err => console.log('error', err))
+    .catch(err => console.log('error', err));
   });
 
   return router;

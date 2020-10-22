@@ -2,33 +2,42 @@ $(() => {
   const url = window.location.href;
   const orderId = url.substring(30);
 
-  //get user data
-  $.ajax({
-    method: "GET",
-    url: `/getData/${orderId}`
-  }).done((user) => {
-    renderConfirmation(user);
-  });
+  const getData = () => {
 
-  //check if restaurant has updated time estimate
-  $.ajax({
-    method: "GET",
-    url: `/checkTimeData/${orderId}`
-  }).done((value) => {
-    if (value.confirmed && !value.completed_at) {
-      addTime(value.confirmed);
-    }
-  });
+    console.log('loading data');
+    //get user data
+    $.ajax({
+      method: "GET",
+      url: `/getData/${orderId}`
+    }).done((user) => {
+      renderConfirmation(user);
+    });
 
-  //check if restaurant has completed order
-  $.ajax({
-    method: "GET",
-    url: `/orderComplete/${orderId}`
-  }).done((data) => {
-    if (data.completed_at) {
-      renderCompleted(data);
-    }
-  });
+    //check if restaurant has updated time estimate
+    $.ajax({
+      method: "GET",
+      url: `/checkTimeData/${orderId}`
+    }).done((value) => {
+      if (value.confirmed && !value.completed_at) {
+        addTime(value.confirmed);
+      }
+    });
+
+    //check if restaurant has completed order
+    $.ajax({
+      method: "GET",
+      url: `/orderComplete/${orderId}`
+    }).done((data) => {
+      if (data.completed_at) {
+        renderCompleted(data);
+      }
+    });
+  };
+
+  //Get data on initial load, set interval for every 60 seconds
+  getData();
+  setInterval(getData, 10000);
+
 
   const renderCompleted = function(data) {
     const pTag = `

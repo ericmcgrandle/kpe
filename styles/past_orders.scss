@@ -1,53 +1,54 @@
+$fw: 800;
+$as: center;
+$ta: center;
+
 body {
-  font-family: 'Display Playfair';
-  background-color: #DAAD86;
+  height: 95vh;
+  background-image: URL('https://bigseventravel.com/wp-content/uploads/2019/05/Screenshot-2019-04-30-at-15.51.17.png');
+  background-size: cover;
 }
+
 .container-past-orders {
+  border: 3px solid black;
+  margin: 1em auto;
+  width: 75%;
+  padding: 1em;
+  color: white;
+  text-align: $ta;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
-  opacity: 70%;
-  background-color: white;
-  width: 75%;
-  margin: 1em auto;
-  border-radius: 1.5em;
-  padding: 1em;
-  /* box-shadow: 0px 11px 35px 2px white; */
 }
 
 #order-complete {
-  color: black;
-  font-family: 'Display Playfair';
-  font-weight: bold;
-  font-size: 40px;
-  text-align: center;
-  opacity: 70%;
-  background-color: white;
-  margin: 1em auto;
+  color: white;
+  margin: 2em auto;
   padding: 1em;
+  text-align: $ta;
   width: 50%;
-  border-radius: 1.5em;
+  border-radius: 10px;
+  font-size: 25px;
 }
 
 .order-id {
-font-weight: 800;
+font-weight: $fw;
 font-size: 20px;
-align-self: center;
+align-self: $as;
 }
 
 .completed-at {
-font-weight: 800;
-align-self: center;
+font-weight: $fw;
+align-self: $as;
 }
 
 .order-name {
-font-weight: 800;
-align-self: center;
+font-weight: $fw;
+align-self: $as;
 }
 
 .order-phone-number {
-font-weight: 800;
-align-self: center;
+font-weight: $fw;
+align-self: $as;
 }
 

@@ -1,14 +1,17 @@
+$bg: white;
+
 .header {
   overflow: hidden;
-  background-color: #F3D479;
-  padding: 125px 30px;
+  background-color: $bg;
+  opacity: 60%;
+  padding: 50px 30px;
   border: 1px white solid;
 }
 
-/* Style the header links */
+/* Style the header links */ 
 .header a {
   float: left;
-  color: white;
+  color: black;
   text-align: center;
   padding: 12px;
   text-decoration: none;
@@ -18,22 +21,17 @@
 }
 
 /* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
-.header a.logo {
-  font-size: 50px;
-  font-weight: bold;
-  font-family: Corben;
+header a.logo {
+  line-height: 45px;
+  font-size: 45px;
+  font-weight: 900;
+  color: black;
 }
 
-/* Arial, Helvetica, sans-serif; */
-
-/* Change the background color on mouse-over */
-.header a.admin:hover {
-  background-color: #DAAD86;
-  color: #659DBD;
-}
-
-.header a.admin {
+header a.admin {
+  padding-top: 23px;
   float: right;
-  font-family: Nobile;
   font-size: 20px;
+  font-weight: 900;
+  color: black;
 }

@@ -23,6 +23,14 @@ header a.logo {
   font-size: 45px;
   font-weight: 900;
   color: black;
+
+  // @media only screen and (max-width: 640px) {
+  //   font-size: 28px;
+  // }
+
+  // @media only screen and (max-width: 375px) {
+  //   font-size: 
+  // }
 }
 
 header a.admin {
@@ -32,4 +40,8 @@ header a.admin {
   font-weight: 900;
   color: black;
   text-decoration: none;
+
+  // @media only screen and (max-width: 640px) {
+  //   font-size: 16px;
+  // }
 }

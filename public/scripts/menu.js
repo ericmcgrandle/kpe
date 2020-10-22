@@ -1,15 +1,6 @@
-// const { ConnectAppInstance } = require("twilio/lib/rest/api/v2010/account/connectApp");
-
 let objOrderData = [];
-
-
-
 $(document).ready(function() {
-  // let removeBtn = $('.remove-btn');
-  // removeBtn.each(function() {
-  //   console.log('GETTING CALED FROM TOP');
-  //   $(this).on('click', removeCartItem)
-  // })
+
   const inputQuantities = $('.quantity-input');
   inputQuantities.each(function() {
     $(this).on('change', quantityChanged)
@@ -46,7 +37,6 @@ const removeCartItem = function(event) {
   if (cartNames.length === 0) {
     $('#cart').css('visibility', "hidden");
   }
-
 };
 
 const quantityChanged = function(event) {
@@ -134,8 +124,6 @@ const addItemToCart = function(itemName, price, size) {
     }
   }
 };
-// const quantity = $(cartContainer).find('.quantity-input');
-// $(allSizes).text().includes(size) &&
 
 const addNewItem = function(itemName, price, size) {
   const $newItem = $(`<tr class="cart-row">
@@ -148,29 +136,26 @@ const addNewItem = function(itemName, price, size) {
     const $container = $('.cart-items');
     $container.append($newItem);
 
-    console.log('GETTING CALLED FROM ADD NEW ITEM');
     const removeBtn = $('.remove-btn');
     $(removeBtn).off();
     $(removeBtn).on('click', removeCartItem);
-
 
     const quantityChange = $('.quantity-input');
     $(quantityChange).on('change', quantityChanged);
 };
 
 const purchaseClicked = function(event) {
+  event.preventDefault();
   const button = $(this);
   const form = button.closest('.contact-form');
   const name = $(form).find('.contact-name').val();
   const phone = $(form).find('.contact-phone').val();
-  console.log('this is phone', phone);
-  console.log('this is name', name);
 
   $.ajax({
     method: "POST",
     url: "/updateOrderPurchase",
     data: { objOrderData, name, phone }
-  }).done((user) => {
-    console.log('USER', user);
+  }).done((data) => {
+    window.location.href = `/OrderId/${data[0].id}`
   });
-}
+};

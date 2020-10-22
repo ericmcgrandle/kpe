@@ -1,5 +1,3 @@
-const { user } = require("pg/lib/defaults");
-
 const updateTimeDatabase = (obj, db) => {
 
   //IN THEN UPDATE QUERY TO GET PHONE NUMBER FROM DATABASE
@@ -39,36 +37,37 @@ const updateCompletedAt = (obj, db) => {
 };
 
 const updateOrderPurchase = (obj, db) => {
-  console.log('object', obj.phone);
     return db.query(`
     INSERT INTO users (name, phone)
-    VALUES ('${obj.name}', ${obj.phone})  
+    VALUES ('${obj.name}', ${obj.phone})
     ;`)
-  .then(() =>
+    .then(() =>
     db.query(`
     INSERT INTO orders (user_id, created_at, confirmed, completed_at)
     VALUES (
       (
-      SELECT users.id
-      FROM users
-      WHERE users.name = '${obj.name}'
-      AND users.phone = ${obj.phone}
+        SELECT users.id
+        FROM users
+        WHERE users.name = '${obj.name}'
+        AND users.phone = ${obj.phone}
+        ORDER BY id DESC
+        LIMIT 1
       ),
-      NOW(), NULL, NULL) 
+      NOW(), NULL, NULL)
     ;`)
   )
   .then(() => {
     for(let item of obj.objOrderData) {
       db.query(`
       INSERT INTO carts (order_id, menu_id)
-      VALUES 
+      VALUES
       (
         (
           SELECT orders.id
           FROM orders
           ORDER BY created_at DESC
           LIMIT 1
-        ), 
+        ),
         (
           SELECT menu_items.id
           FROM menu_items
@@ -78,13 +77,34 @@ const updateOrderPurchase = (obj, db) => {
       )
       ;`)
     }
-    return true;
+  })
+  .then(() => {
+    return db.query(`
+    SELECT id FROM orders ORDER BY id DESC LIMIT 1;
+    `)
   })
   .catch(err => console.log('error', err));
+};
+
+
+const getUserData = (id, db) => {
+  return db.query(`
+    SELECT * FROM orders WHERE id = ${id};
+  `)
+  .then((result) => {
+    const ordersObj = result.rows[0];
+    const userId = ordersObj.user_id;
+
+    return db.query(`
+    SELECT * FROM users WHERE id = ${userId};
+    `)
+  })
+  .catch((err) => console.log('err', err));
 };
 
 module.exports = {
   updateTimeDatabase,
   updateCompletedAt,
-  updateOrderPurchase
+  updateOrderPurchase,
+  getUserData
 }

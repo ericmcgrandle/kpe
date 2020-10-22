@@ -9,6 +9,7 @@ const express = require('express');
 const router  = express.Router();
 
 const updateDB = require('../helper_functions/updateDatabase');
+const sms = require('../helper_functions/sms');
 
 module.exports = (db) => {
   //Homepage
@@ -22,26 +23,33 @@ module.exports = (db) => {
   });
 
   //Confirmation
-  router.get("/confirmation", (req, res) => {
+  router.get("/OrderID/:id", (req, res) => {
     res.render('confirmation');
   });
 
-  //Success
-  router.get("/success", (req, res) => {
-    res.render('success');
+  router.get("/getData/:id", (req, res) => {
+    updateDB.getUserData(req.params.id, db)
+    .then(user => {
+      res.json(user.rows[0]);
+    })
   });
 
   router.post("/updateOrderPurchase", (req, res)  => {
-    updateDB.updateOrderPurchase(req.body, db);
-  });
+    sms.sendSMS(Number(req.body.phone), 'Your Order Has Been Placed!');
+    sms.sendSMS(process.env.RESTAURANT_NUMBER, 'A New Order Has Been Placed!');
 
-  // router.post("/purchaseClickedData", (req, res) => {
-  //   console.log('this is req', req.body);
-  //   updateDB.puchaseData()
-  // });
+    updateDB.updateOrderPurchase(req.body, db)
+    .then(result => {
+      res.json(result.rows);
+    })
+    .catch(err => console.log('error', err))
+  });
 
   return router;
 
+<<<<<<< HEAD
   //Update Confirmation Time
 
+=======
+>>>>>>> 35e7bf747a741ae8ef2025cab715b812992d74b1
 };

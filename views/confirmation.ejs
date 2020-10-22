@@ -13,16 +13,19 @@
 
 </head>
 <body>
+
   <%- include('partials/_header') %>
-  <div class="confirmation-page">
-  <div class="confirmation-content">
-  <h1>You have successfully placed an order!</h1>
-  <p>Stay tuned for the restaurant to confirm your order and return an estimate on the time...</p>
+
+  <div id="no-user" class="confirmation-page">
+    <div class="confirmation-content">
+    <h1>You have successfully placed an order!</h1>
+    <p>Stay tuned for the restaurant to confirm your order and return an estimate on the time...</p>
+    </div>
   </div>
-  <form class="time-box">
-    <input placeholder="time">
-  </form>
-  </div>
+
+    <div id="confirm-data" class="confirmation-page">
+      <!-- User data goes here -->
+    </div>
 
 </body>
 </html>

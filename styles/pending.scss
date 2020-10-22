@@ -1,43 +1,47 @@
+$op: 40%;
+$fw: bold;
+
+body {
+  background-image: URL('https://bigseventravel.com/wp-content/uploads/2019/05/Screenshot-2019-04-30-at-15.51.17.png');
+  background-size: contain;
+}
+
 main {
   font-size: 20px;
 }
 
 .container {
-  border: 1px solid black;
   margin: 1em;
-}
-
-.pending_confirmation {
-  background-image: url("https://images.alphacoders.com/107/1078503.jpg");
-}
-
-.orders_in_process {
-  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRAHeKhMiFytxaZuNKLTK4VOJBjGWO3hF0vNQ&usqp=CAU");
 }
 
 //Headers
 h3 {
-  margin: 1em auto;
+  // border: 3px solid black;
+  color: white;
+  margin: 2em auto;
   padding: 1em;
-  color: black;
   text-align: center;
   width: 50%;
-  background-color: lightgray;
-  opacity: 70%;
+  // background-color: rgba(211, 211, 211, 0.6);
+  // opacity: 60%;
   border-radius: 10px;
+  font-size: 25px;
 }
 
 .pending-order {
-  opacity: 70%;
+  // opacity: $op;
+  border: 3px solid black;
   margin: 1em auto;
   width: 75%;
-  background-color: white;
+  // background-color: white;
   padding: 1em;
+  color: white;
   text-align: center;
 }
 
 //Buttons
 .adminForm {
+  opacity: 60%;
   font-size: 16px;
   text-decoration: none;
   color: black;
@@ -47,7 +51,24 @@ h3 {
   align-items: center;
 }
 
+.adminForm:hover {
+  background-color: black;
+  color: white;
+}
+
 .orderId {
-  font-weight: bold;
+  font-weight: $fw;
   justify-content: center;
 }
+
+div#append_new_orders {
+  font-weight: $fw;
+  color: black;
+}
+
+div#orders_in_process {
+  font-weight: $fw;
+  color: black;
+}
+
+

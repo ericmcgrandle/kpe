@@ -1,4 +1,5 @@
 $( document ).ready(function() {
+
   //Gets data for pending orders
   const getPendingData = () => {
     $.ajax({

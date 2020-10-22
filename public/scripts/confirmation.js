@@ -2,8 +2,8 @@ $(() => {
   const url = window.location.href;
   const orderId = url.substring(30);
 
+  //Ajax calls for get data
   const getData = () => {
-
     console.log('loading data');
     //get user data
     $.ajax({

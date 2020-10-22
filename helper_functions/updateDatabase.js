@@ -102,9 +102,26 @@ const getUserData = (id, db) => {
   .catch((err) => console.log('err', err));
 };
 
+const orderReady = function(id, db) {
+  console.log("THIS IS ID", id)
+  return db.query(`
+  SELECT id, completed_at
+  FROM orders
+  WHERE id = ${id}
+  ;`)
+};
+
+const checkTime = (orderId, db) => {
+  return db.query(`
+    SELECT confirmed FROM orders WHERE id = ${orderId};
+  `)
+};
+
 module.exports = {
   updateTimeDatabase,
   updateCompletedAt,
   updateOrderPurchase,
-  getUserData
+  getUserData,
+  orderReady,
+  checkTime
 }

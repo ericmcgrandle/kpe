@@ -34,6 +34,21 @@ module.exports = (db) => {
     })
   });
 
+  router.get("/orderComplete/:id", (req, res) => {
+    updateDB.orderReady(req.params.id, db)
+    .then(result => {
+      res.json(result.rows[0])
+    })
+    .catch(err => console.log('error', err));
+  });
+
+
+  router.get("/checkTimeData/:id", (req, res) => {
+    updateDB.checkTime(req.params.id, db)
+    .then(data => res.json(data.rows[0]))
+    .catch((err) => console.log('err', err));
+  });
+
   router.post("/updateOrderPurchase", (req, res)  => {
     sms.sendSMS(Number(req.body.phone), 'Your Order Has Been Placed!');
     sms.sendSMS(process.env.RESTAURANT_NUMBER, 'A New Order Has Been Placed!');
@@ -42,7 +57,7 @@ module.exports = (db) => {
     .then(result => {
       res.json(result.rows);
     })
-    .catch(err => console.log('error', err))
+    .catch(err => console.log('error', err));
   });
 
   return router;

@@ -173,9 +173,6 @@ const purchaseClicked = function(event) {
     url: "/updateOrderPurchase",
     data: { objOrderData, name, phone }
   }).done((user) => {
-
-    
-
     window.location.href = '/confirmation'
   });
 

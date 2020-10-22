@@ -32,10 +32,8 @@ module.exports = (db) => {
   });
 
   router.post("/updateOrderPurchase", (req, res)  => {
-    console.log('reqBody', req.body);
     updateDB.updateOrderPurchase(req.body, db)
     .then(result => {
-      console.log('reqBody inside', req.body);
       res.json(req.body);
       // res.sendStatus(200);
     })

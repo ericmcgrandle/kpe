@@ -18,24 +18,19 @@ $bg: white;
     }
 }
 
-/* Style the header links */ 
-// .header a {
-//   float: left;
-//   color: black;
-//   text-align: center;
-//   padding: 12px;
-//   text-decoration: none;
-//   font-size: 18px;
-//   line-height: 25px;
-//   border-radius: 15px;
-// }
-
-/* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
 header a.logo {
   line-height: 45px;
   font-size: 45px;
   font-weight: 900;
   color: black;
+
+  // @media only screen and (max-width: 640px) {
+  //   font-size: 28px;
+  // }
+
+  // @media only screen and (max-width: 375px) {
+  //   font-size: 
+  // }
 }
 
 header a.admin {
@@ -44,4 +39,9 @@ header a.admin {
   font-size: 20px;
   font-weight: 900;
   color: black;
+  text-decoration: none;
+
+  // @media only screen and (max-width: 640px) {
+  //   font-size: 16px;
+  // }
 }

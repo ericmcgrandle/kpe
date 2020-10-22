@@ -10,7 +10,7 @@ body {
 #title {
   margin: 1em;
   color: white;
-  text-align: center;
+  text-align: $ta;
   font-size: 50px;
 }
 
@@ -44,18 +44,24 @@ body {
   color: white;
   font-size: 20px;
   font-weight: 800;
+  border-radius: 14px;
 }
 
 .sizes-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  text-align: center;
+  text-align: $ta;
 }
 
 .size-container {
   flex-direction: column;
   padding: 1em auto;
+}
+
+.size-btn:hover {
+  background-color: black;
+  color: white;
 }
 
 .quantity-input {

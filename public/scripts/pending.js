@@ -48,7 +48,7 @@ $( document ).ready(function() {
     if (obj[0].confirmed) {
       newOrder += `
         <form>
-          <button class="adminForm adminComplete" type="submit">Complete</button>
+          <button class="adminForm adminComplete btn btn-dark" type="submit">Complete</button>
         </form>
       </div>`;
     } else {

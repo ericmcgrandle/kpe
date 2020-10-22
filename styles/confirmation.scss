@@ -1,4 +1,4 @@
-$as: center;
+// $as: center;
 
 body {
   height: 95vh;
@@ -21,13 +21,13 @@ body {
   width: 75%;
   opacity: 70%;
   background-color: white;
-  align-self: $as;
+  align-self: center;
   text-align: center;
 }
 
 .time-box {
   padding-top: 5em;
-  align-self: $as;
+  align-self: center;
 
 }
 

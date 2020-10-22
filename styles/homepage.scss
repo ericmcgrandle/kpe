@@ -1,25 +1,21 @@
 $td: none;
 $ai: center;
 
-// .logo-bttn h1 {
-//   font-size: 50px;
-//   line-height: 1.2;
+// .button {
+//   font-size: 18px;
+//   text-decoration: $td;
+//   color: black;
+//   border: black 1px solid;
+//   padding: 10px 20px;
+//   border-radius: 10px;
+//   align-items: $ai;
 // }
 
-.button {
-  font-size: 18px;
-  text-decoration: $td;
-  color: black;
-  border: black 1px solid;
-  padding: 10px 20px;
-  border-radius: 10px;
-  align-items: $ai;
-}
-
-.button:hover {
-  background-color: black;
-  color: white;
-}
+// .button:hover {
+//   background-color: black;
+//   color: white;
+//   text-decoration: none;
+// }
 
 body {
   background-image: url('https://images.pexels.com/photos/4450334/pexels-photo-4450334.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
@@ -32,7 +28,7 @@ body {
 
 .admin {
   float: right;
-  text-decoration: $td;
+  text-decoration: none;
   color: black;
   padding: 30px;
 }
@@ -41,7 +37,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: $ai;
+  align-items: center;
   text-align: center;
   height: 100vh;
   margin-left: 120px;
@@ -53,6 +49,7 @@ body {
 
 .admin:hover {
   color: white;
+  text-decoration: $td;
 }
 
 /* 

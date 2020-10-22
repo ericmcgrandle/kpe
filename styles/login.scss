@@ -5,33 +5,44 @@ body {
 }
 
 .container {
+  display: flex;
   border: 3px solid black;
   margin: 2em auto;
+  padding: 2em;
   width: 50%;
-  opacity: 60%;
   border-radius: 40px;
+  justify-content: center;
 }
 
 input {
   font-size: 20px;
   display: flex;
-  margin: 1.5em auto;
   text-align: center;
+  opacity: 60%;
+}
+
+#admin_name {
+  margin: 1em;
+}
+
+#admin_password {
+  margin: 1em;
 }
 
 //Button
-.submit {
-  text-decoration: none;
-  color: black;
-  border: black 1px solid;
-  padding: 10px 20px;
-  border-radius: 10px;
-  align-items: center;
-}
-.submit:hover {
-  background-color: black;
-  color: white;
-}
+// .submit {
+//   text-decoration: none;
+//   color: black;
+//   border: black 1px solid;
+//   padding: 10px 20px;
+//   border-radius: 10px;
+//   align-items: center;
+// }
+// .submit:hover {
+//   background-color: black;
+//   color: white;
+// }
+
 
 div.container {
   margin-top: 12em;

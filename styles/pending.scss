@@ -24,8 +24,8 @@ h3 {
   width: 50%;
   // background-color: rgba(211, 211, 211, 0.6);
   // opacity: 60%;
-  border-radius: 10px;
-  font-size: 25px;
+  font-size: 30px;
+  border-bottom: 3px solid white;
 }
 
 .pending-order {
@@ -37,6 +37,7 @@ h3 {
   padding: 1em;
   color: white;
   text-align: center;
+  border-radius: 14px;
 }
 
 //Buttons
@@ -70,5 +71,3 @@ div#orders_in_process {
   font-weight: $fw;
   color: black;
 }
-
-

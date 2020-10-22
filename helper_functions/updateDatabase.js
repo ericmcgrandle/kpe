@@ -39,20 +39,21 @@ const updateCompletedAt = (obj, db) => {
 };
 
 const updateOrderPurchase = (obj, db) => {
-  console.log('object', obj.phone);
     return db.query(`
     INSERT INTO users (name, phone)
     VALUES ('${obj.name}', ${obj.phone})  
     ;`)
-  .then(() =>
+    .then(() =>
     db.query(`
     INSERT INTO orders (user_id, created_at, confirmed, completed_at)
     VALUES (
       (
-      SELECT users.id
-      FROM users
-      WHERE users.name = '${obj.name}'
-      AND users.phone = ${obj.phone}
+        SELECT users.id
+        FROM users
+        WHERE users.name = '${obj.name}'
+        AND users.phone = ${obj.phone}
+        ORDER BY id DESC
+        LIMIT 1
       ),
       NOW(), NULL, NULL) 
     ;`)
@@ -78,7 +79,6 @@ const updateOrderPurchase = (obj, db) => {
       )
       ;`)
     }
-    return true;
   })
   .catch(err => console.log('error', err));
 };

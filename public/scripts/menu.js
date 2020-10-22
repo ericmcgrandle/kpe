@@ -39,10 +39,7 @@ const removeCartItem = function(event) {
   
   
   tableRow.remove();
-<<<<<<< HEAD
-  updateCartTotal()
-  };
-=======
+
   updateCartTotal();
 
   //If user deletes all items from cart, hide cart
@@ -50,9 +47,8 @@ const removeCartItem = function(event) {
   if (cartNames.length === 0) {
     $('#cart').css('visibility', "hidden");
   }
-
 };
->>>>>>> cf84f4cb232ee8eeb5d7c76bdf29e6285cb7874a
+
 
 const quantityChanged = function(event) {
   const input = event.target;
@@ -164,6 +160,7 @@ const addNewItem = function(itemName, price, size) {
 };
 
 const purchaseClicked = function(event) {
+  event.preventDefault();
   const button = $(this);
   const form = button.closest('.contact-form');
   const name = $(form).find('.contact-name').val();
@@ -176,6 +173,17 @@ const purchaseClicked = function(event) {
     url: "/updateOrderPurchase",
     data: { objOrderData, name, phone }
   }).done((user) => {
-    console.log('USER', user);
+
+    
+
+    window.location.href = '/confirmation'
   });
+
+  // $.ajax({
+  //   method: "GET",
+  //   url: "/confirmation",
+  // }).done((user) => {
+  //   console.log('USER', user);
+  // });
+  
 }

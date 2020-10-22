@@ -32,13 +32,15 @@ module.exports = (db) => {
   });
 
   router.post("/updateOrderPurchase", (req, res)  => {
-    updateDB.updateOrderPurchase(req.body, db);
+    console.log('reqBody', req.body);
+    updateDB.updateOrderPurchase(req.body, db)
+    .then(result => {
+      console.log('reqBody inside', req.body);
+      res.json(req.body);
+      // res.sendStatus(200);
+    })
+    .catch(err => console.log('error', err))
   });
-
-  // router.post("/purchaseClickedData", (req, res) => {
-  //   console.log('this is req', req.body);
-  //   updateDB.puchaseData()
-  // });
 
   return router;
 

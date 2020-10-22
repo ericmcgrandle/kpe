@@ -1,14 +1,11 @@
 body {
-  box-sizing: border-box;
-}
-
-.main-body {
-  border: 1px solid black;
-  background-image: url("https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-1.2.1&w=1000&q=80"), url("https://images5.alphacoders.com/381/381504.jpg");
+    height: 95vh;
+    background-image: URL('https://bigseventravel.com/wp-content/uploads/2019/05/Screenshot-2019-04-30-at-15.51.17.png');
+    background-size: cover;
+    background-position: inherit;
 }
 
 #title {
-  // padding: 1em;
   margin: 1em;
   color: white;
   text-align: center;
@@ -23,11 +20,12 @@ body {
 
 .pizza-item {
   width: 40%;
-  border: black solid 1px;
+  border: 3px solid black;
   padding: 10px;
   margin-bottom: 30px;
-  background-color: white;
-  opacity: 90%;
+  color: white;
+  font-size: 20px;
+  font-weight: 800;
 }
 
 .sizes-container {
@@ -39,6 +37,7 @@ body {
 
 .size-container {
   flex-direction: column;
+  padding: 1em auto;
 }
 
 .quantity-input {
@@ -53,32 +52,35 @@ tr.quantity-input {
   display: flex;
   flex-direction: column;
   width: 60vw;
-  border: 1px solid black;
+}
+
+.contact-form h2 {
+  font-size: 40px;
+  align-items: center;
 }
 
 .contact-form > input {
   margin: 0.5em auto;
-  width: 50%
+  width: 50%;
+  opacity: 50%;
 }
 
 #cart {
-  border: 1px solid black;
   margin: 1em;
-  background-color: white;
-  opacity: 90%;
+  color: white;
   visibility: hidden;
 }
 
 .cart-title {
   text-align: center;
-  border: 1px solid black;
   margin: 25px;
+  font-size: 50px;
+  font-weight: 800;
 }
 
 .cart-table {
   width: 80%;
   text-align: center;
-  border: 1px solid black;
   margin-left: auto;
   margin-right: auto;
 }
@@ -88,6 +90,7 @@ tr.quantity-input {
   border-top: 5px solid;
   border-bottom: 5px solid;
   border-color: transparent;
+  font-size: 20px;
 }
 
 .subtotal-confirm {
@@ -100,9 +103,27 @@ tr.quantity-input {
 
 .cart-total {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  // justify-content: right;
+  // justify-content: space-between;
   margin: 1em;
   margin-top: 0em;
 }
 
+.total-price {
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 3em;
+}
 
+.total {
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 3em;
+}
+
+.confirm-btn {
+  border-radius: .5em;
+  margin-top: 1em;
+  padding: .5em;
+}

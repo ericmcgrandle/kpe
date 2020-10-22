@@ -1,15 +1,14 @@
-main {
-  height: 100vh;
-  background-image: url("https://www.itl.cat/pngfile/big/297-2975266_making-pizza-food-and-drink-pizzas-tomato-tomatoes.jpg");
-  border: 1px solid black;
+body {
+  height: 95vh;
+  background-image: URL('https://bigseventravel.com/wp-content/uploads/2019/05/Screenshot-2019-04-30-at-15.51.17.png');
+  background-size: cover;
 }
 
 .container {
-  border: 1px solid black;
+  border: 3px solid black;
   margin: 2em auto;
   width: 50%;
-  opacity: 70%;
-  background-color: white;
+  opacity: 60%;
   border-radius: 40px;
 }
 
@@ -29,3 +28,12 @@ input {
   border-radius: 10px;
   align-items: center;
 }
+.submit:hover {
+  background-color: black;
+  color: white;
+}
+
+div.container {
+  margin-top: 12em;
+}
+

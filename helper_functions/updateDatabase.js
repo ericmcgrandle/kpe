@@ -1,5 +1,3 @@
-const { user } = require("pg/lib/defaults");
-
 const updateTimeDatabase = (obj, db) => {
 
   //IN THEN UPDATE QUERY TO GET PHONE NUMBER FROM DATABASE
@@ -80,11 +78,33 @@ const updateOrderPurchase = (obj, db) => {
       ;`)
     }
   })
+  .then(() => {
+    return db.query(`
+    SELECT id FROM orders ORDER BY id DESC LIMIT 1;
+    `)
+  })
   .catch(err => console.log('error', err));
+};
+
+
+const getUserData = (id, db) => {
+  return db.query(`
+    SELECT * FROM orders WHERE id = ${id};
+  `)
+  .then((result) => {
+    const ordersObj = result.rows[0];
+    const userId = ordersObj.user_id;
+
+    return db.query(`
+    SELECT * FROM users WHERE id = ${userId};
+    `)
+  })
+  .catch((err) => console.log('err', err));
 };
 
 module.exports = {
   updateTimeDatabase,
   updateCompletedAt,
-  updateOrderPurchase
+  updateOrderPurchase,
+  getUserData
 }

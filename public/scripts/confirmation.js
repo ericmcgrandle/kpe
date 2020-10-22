@@ -1,12 +1,23 @@
 $(() => {
 
-  //On button click
-  $('#confirm_order').click((event) => {
-    event.preventDefault();
+  const url = window.location.href;
+  const orderId = url.substring(30);
 
-    //Check information
-    //add div to pending.ejs
-    //send text
-
+  $.ajax({
+    method: "GET",
+    url: `/getData/${orderId}`
+  }).done((user) => {
+    renderConfirmation(user);
   });
+
+  const renderConfirmation = (userData) => {
+    const userName = `
+      <div class="confirmation-content">
+        <h1>Thank You ${userData.name} For Your Order!</h1>
+        <p>Stay tuned for the restaurant to confirm your order and return an estimate on the time...</p>
+      </div>
+    `
+    $('#no-user').remove();
+    $('#confirm-data').append(userName);
+  }
 });

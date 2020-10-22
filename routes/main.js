@@ -47,9 +47,4 @@ module.exports = (db) => {
 
   return router;
 
-<<<<<<< HEAD
-  //Update Confirmation Time
-
-=======
->>>>>>> 35e7bf747a741ae8ef2025cab715b812992d74b1
 };

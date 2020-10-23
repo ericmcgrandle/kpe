@@ -9,15 +9,6 @@ $( document ).ready(function() {
   $('.admin').remove();
   $('.header').append(pastOrders);
 
-  //Gets data for pending orders
-  $.ajax({
-    method: "GET",
-    url: "/admin/pending_data"
-  }).done((orders) => {
-    console.log('rendering new data');
-    renderPending(orders);
-  });
-
   
   //Gets data for pending orders
   $.ajax({

@@ -1,4 +1,15 @@
 $(document).ready(() => {
+
+  const pendingOrders = `
+    <div class="header-right">
+          <a class="admin" href="pending">Pending Orders</a>
+        </div>
+    `;
+
+  $('.admin').remove();
+  $('.header').append(pendingOrders);
+
+
   $.ajax({
     method: "GET",
     url: "/admin/past_orders_data"

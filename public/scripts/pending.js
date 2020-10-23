@@ -1,21 +1,32 @@
 $( document ).ready(function() {
 
+  const pastOrders = `
+    <div class="header-right">
+          <a class="admin" href="past_orders">Past Orders</a>
+        </div>
+  `;
+
+  $('.admin').remove();
+  $('.header').append(pastOrders);
+
   //Gets data for pending orders
-  const getPendingData = () => {
-    $.ajax({
-      method: "GET",
-      url: "/admin/pending_data"
-    }).done((orders) => {
-      console.log('rendering new data');
-      renderPending(orders);
-    });
-  };
+  $.ajax({
+    method: "GET",
+    url: "/admin/pending_data"
+  }).done((orders) => {
+    console.log('rendering new data');
+    renderPending(orders);
+  });
 
-  //Get data on initial load, set interval for every 10 seconds
-  // getPendingData();
-  // setInterval(getPendingData, 10000);
-
-
+  
+  //Gets data for pending orders
+  $.ajax({
+    method: "GET",
+    url: "/admin/pending_data"
+  }).done((orders) => {
+    console.log('rendering new data');
+    renderPending(orders);
+  });
 
   //Creates the div elements for pending orders
   const createOrderElement = (obj) => {

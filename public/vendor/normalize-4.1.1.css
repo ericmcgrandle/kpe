@@ -6,7 +6,7 @@
  */
 
 html {
-  font-family: 'Montserrat'; /* 1 */
+  font-family: 'Montserrat';
   -ms-text-size-adjust: 100%; /* 2 */
   -webkit-text-size-adjust: 100%; /* 2 */
 }
@@ -223,9 +223,9 @@ svg:not(:root) {
 kbd,
 pre,
 samp {
-  font-family: monospace, monospace; /* 1 */
-  font-size: 1em; /* 2 */
-} */
+  font-family: monospace, monospace; 1
+  font-size: 1em;
+}
 
 /**
  * Add the correct margin in IE 8.

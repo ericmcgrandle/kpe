@@ -4,7 +4,6 @@ body {
     height: 95vh;
     background-image: URL('https://bigseventravel.com/wp-content/uploads/2019/05/Screenshot-2019-04-30-at-15.51.17.png');
     background-size: cover;
-    background-position: inherit;
 }
 
 #title {
@@ -66,31 +65,12 @@ body {
 
 .quantity-input {
   width: 40px;
+  opacity: 60%
 }
 
 tr.quantity-input {
   width: 5%;
 }
-
-// .contact-form {
-//   display: flex;
-//   flex-direction: column;
-//   width: 60vw;
-//   border-top: 2px solid white;
-// }
-
-// .contact-form h2 {
-//   font-size: 40px;
-//   align-items: center;
-// }
-
-
-// .contact-form > input {
-//   margin: 0.5em auto;
-//   width: 50%;
-//   opacity: 50%;
-// }
-
 
 #cart {
   margin: 1em;
@@ -118,6 +98,18 @@ tr.quantity-input {
   border-bottom: 5px solid;
   border-color: transparent;
   font-size: 20px;
+}
+
+.cart-row .cart-name {
+  font-weight: 800;
+}
+
+.cart-row .cart-size {
+  font-weight: 800;
+}
+
+.cart-row .item-price {
+  font-weight: 800;
 }
 
 .subtotal-confirm {
@@ -150,9 +142,29 @@ tr.quantity-input {
 }
 
 .confirm-btn {
-  border-radius: .5em;
+  border-radius: 10px;
   margin-top: 1em;
   padding: .5em;
+  opacity: 60%;
+  color: black;
+  border: black 1px solid;
+}
+
+.confirm-btn:hover {
+  background-color: black;
+  color: white;
+}
+
+.remove-btn {
+  border-radius: 10px;
+  opacity: 60%;
+  color: black;
+  border: black 1px solid;
+}
+
+.remove-btn:hover {
+  background-color: black;
+  color: white;
 }
 
 .admin { 

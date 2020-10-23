@@ -12,8 +12,8 @@ $( document ).ready(function() {
   };
 
   //Get data on initial load, set interval for every 10 seconds
-  getPendingData();
-  setInterval(getPendingData, 10000);
+  // getPendingData();
+  // setInterval(getPendingData, 10000);
 
 
 

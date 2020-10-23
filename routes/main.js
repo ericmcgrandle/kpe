@@ -51,8 +51,7 @@ module.exports = (db) => {
     sms.sendSMS(process.env.RESTAURANT_NUMBER, 'A New Order Has Been Placed!');
 
     updateDB.updateOrderPurchase(req.body, db)
-    .then(result => {
-      res.json(result.rows);
+    .then(result => {      res.json(result.rows);
     })
     .catch(err => console.log('error', err));
   });

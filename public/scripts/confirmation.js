@@ -37,7 +37,7 @@ $(() => {
 
   //Get data on initial load, set interval for every 60 seconds
   getData();
-  setInterval(getData, 10000);
+  setInterval(getData, 5000);
 
 
   const renderCompleted = function(data) {

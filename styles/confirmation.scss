@@ -16,7 +16,7 @@ body {
 .confirmation-content {
   flex-basis: 50%;
   margin-top: 10em;
-  border-radius: 1.5em; 
+  border-radius: 1.5em;
   padding: 1em;
   width: 75%;
   opacity: 70%;
@@ -41,6 +41,10 @@ body {
 footer {
   font-size: 14px;
   font-weight: bold;
+}
+
+.admin {
+  display: none;
 }
 
 

@@ -18,15 +18,6 @@ $( document ).ready(function() {
     renderPending(orders);
   });
 
-  
-  //Gets data for pending orders
-  $.ajax({
-    method: "GET",
-    url: "/admin/pending_data"
-  }).done((orders) => {
-    console.log('rendering new data');
-    renderPending(orders);
-  });
 
   //Creates the div elements for pending orders
   const createOrderElement = (obj) => {

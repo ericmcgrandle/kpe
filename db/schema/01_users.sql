@@ -7,3 +7,4 @@ CREATE TABLE users (
   name VARCHAR(255) NOT NULL,
   phone BIGINT NOT NULL
 );
+

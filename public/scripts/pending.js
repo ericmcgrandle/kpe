@@ -9,10 +9,7 @@ $( document ).ready(function() {
   $('.admin').remove();
   $('.header').append(pastOrders);
 
-<<<<<<< HEAD
-=======
-  
->>>>>>> 0d43de80062e6f11275826a8589bef69b147f3a5
+
   //Gets data for pending orders
   $.ajax({
     method: "GET",
@@ -21,10 +18,6 @@ $( document ).ready(function() {
     console.log('rendering new data');
     renderPending(orders);
   });
-<<<<<<< HEAD
-
-=======
->>>>>>> 0d43de80062e6f11275826a8589bef69b147f3a5
 
   //Creates the div elements for pending orders
   const createOrderElement = (obj) => {

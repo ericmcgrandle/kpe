@@ -25,10 +25,11 @@ body {
   color: white;
   margin: 2em auto;
   padding: 1em;
-  text-align: $ta;
+  text-align: center;
   width: 50%;
-  border-radius: 10px;
-  font-size: 25px;
+  font-size: 30px;
+  font-weight: 800;
+  border-bottom: 3px solid white;
 }
 
 .order-id {
@@ -50,5 +51,9 @@ align-self: $as;
 .order-phone-number {
 font-weight: $fw;
 align-self: $as;
+}
+
+body {
+  font-family: montserrat;
 }
 

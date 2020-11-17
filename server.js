@@ -24,7 +24,7 @@ const app        = express();
 const pg = require("pg");
 
 const client = new pg.Client({
-  connectionString: process.env.DATABASE_URL || "postgres://pfgahqcqmwxmzv:49d21b31fe161431f8d41717399129ef426c932b225f483f42f13a5435aad174@ec2-52-20-248-222.compute-1.amazonaws.com:5432/der9c83luup649"
+  connectionString: "postgres://pfgahqcqmwxmzv:49d21b31fe161431f8d41717399129ef426c932b225f483f42f13a5435aad174@ec2-52-20-248-222.compute-1.amazonaws.com:5432/der9c83luup649"
 });
 
 client

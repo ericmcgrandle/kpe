@@ -1,5 +1,5 @@
 // load .env data into process.env
-// require('dotenv').config();
+require('dotenv').config();
 
 // Web server config
 const PORT       = process.env.PORT || 8080;
@@ -22,9 +22,6 @@ const db = new Pool({
 db.connect();
 
 
-
-
-
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/styles", sass({
@@ -44,11 +41,7 @@ app.use("/", main(db));
 app.use("/admin", admin(db));
 
 
-
-
-// Home page
-// Warning: avoid creating more routes in this file!
-// Separate them into separate routes files (see above).
+// Home Page
 app.get("/", (req, res) => {
   res.render("homepage");
 });

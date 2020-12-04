@@ -9,6 +9,12 @@ For both the user and restaurant admin you are greeted with a clean homepage. Fr
 
 As for the restaurant, they will click on the admin button, login in, and be greeted with all pending and in process orders. When a user creates a new order, the resturant will be informed via a text message. They can confirm an order with an estimated time, and when finished complete the order.
 
+This application is deployed to Heroku. For admin you can either login using:
+Username : Mission Impizzable
+Password : password
+Or you can just bypass the login by visiting 'https://good-af-pizza.herokuapp.com/admin/pending' directly.
+https://good-af-pizza.herokuapp.com/
+
 ## Stack
 
 This project is written in Javascript utilizing the Node.js Express framework. The database utilzes postgresSQL for data managment.

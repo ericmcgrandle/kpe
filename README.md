@@ -1,6 +1,8 @@
 Good AF Pizza
 =========
 
+### Contributors: [Kourtney Huget](https://github.com/kourtneyhuget), [Paige Lindahl](https://github.com/paigelindahl), [Eric McGrandle](https://github.com/ericmcgrandle)
+
 ## Project
 
 The goal of this project was to create a seamless experience for both the user and the restaurant to be able place and recieve orders online. 
